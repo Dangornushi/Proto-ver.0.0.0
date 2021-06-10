@@ -1,0 +1,4118 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    colon
+
+Grammar
+
+Rule 0     S' -> teigilist
+Rule 1     teigilist -> teigi
+Rule 2     teigilist -> teigilist teigi
+Rule 3     paramlist -> param
+Rule 4     paramlist -> paramlist CONMA param
+Rule 5     param -> TYPE ID
+Rule 6     param -> TYPE
+Rule 7     bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+Rule 8     bun -> ID KAKKO shiki KOKKA SEMI
+Rule 9     teigi -> STR
+Rule 10    bun -> ID EQUALS ID SEMI
+Rule 11    teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+Rule 12    teigi -> TYPE ID yaji TYPE LBRACE bunlist RBRACE
+Rule 13    teigi -> STRUCT ID LBRACE teigilist RBRACE
+Rule 14    class -> classf
+Rule 15    class -> class classf
+Rule 16    teigi -> CLASS ID LBRACE class RBRACE
+Rule 17    teigi -> INCLUDE LBRACE shiki RBRACE
+Rule 18    classf -> ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+Rule 19    bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI
+Rule 20    bun -> PASS SEMI
+Rule 21    bunlist -> bun
+Rule 22    bunlist -> bunlist bun
+Rule 23    bun -> TYPE ID EQUALS shiki SEMI
+Rule 24    bun -> TYPE ID EQUALS LISL STR LISR SEMI
+Rule 25    bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI
+Rule 26    bun -> ID EQUALS LISL LISR SEMI
+Rule 27    bun -> ID EQUALS ID OPTASU NUMBER SEMI
+Rule 28    bun -> ID EQUALS ID OPKAKERU NUMBER SEMI
+Rule 29    bun -> ID EQUALS ID OPMIN NUMBER SEMI
+Rule 30    bun -> ID EQUALS ID OPWARU NUMBER SEMI
+Rule 31    shiki -> TYPEF KAKKO shiki KOKKA
+Rule 32    shiki -> TYPE KAKKO shiki KOKKA
+Rule 33    shiki -> RESERV KAKKO shiki KOKKA
+Rule 34    bun -> RETURN shiki SEMI
+Rule 35    bun -> RETURN bun
+Rule 36    bun -> IF hikaku LBRACE bunlist RBRACE
+Rule 37    bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+Rule 38    bun -> WHILE shiki LBRACE bunlist RBRACE
+Rule 39    hikaku -> shiki
+Rule 40    hikaku -> hikaku EQOP shiki
+Rule 41    hikaku -> hikaku dainari shiki
+Rule 42    hikaku -> hikaku syounari shiki
+Rule 43    shiki -> NUMBER
+Rule 44    shiki -> ID
+Rule 45    shiki -> TYPE
+Rule 46    shiki -> STR
+Rule 47    bun -> PASS
+Rule 48    bun -> PASS KAKKO KOKKA
+Rule 49    bun -> PASS KAKKO PASS KOKKA SEMI
+Rule 50    shiki -> OPMIN NUMBER
+Rule 51    shiki -> shiki OPTASU shiki
+Rule 52    shiki -> shiki OPKAKERU shiki
+Rule 53    shiki -> shiki OPMIN shiki
+Rule 54    shiki -> shiki OPWARU shiki
+Rule 55    shiki -> KAKKO shiki KOKKA
+Rule 56    shiki -> shiki CONMA ID
+Rule 57    bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+Rule 58    bun -> RESERV ID LISL ID LISR EQUALS STR SEMI
+Rule 59    bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+Rule 60    bun -> RESERV ID LISL ID LISR EQUALS ID SEMI
+Rule 61    bun -> RESERV KAKKO shiki KOKKA SEMI
+Rule 62    shiki -> ID KAKKO shiki KOKKA
+Rule 63    shiki -> ID KAKKO KOKKA
+Rule 64    bun -> TYPE TYPE LBRACE letlist RBRACE SEMI
+Rule 65    bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI
+Rule 66    letlist -> ID EQUALS STR SEMI
+Rule 67    letlist -> ID EQUALS NUMBER SEMI
+Rule 68    letlist -> letlist ID EQUALS STR SEMI
+Rule 69    letlist -> letlist ID EQUALS NUMBER SEMI
+Rule 70    bun -> ID EQUALS ID OPTASU STR SEMI
+Rule 71    bun -> ID EQUALS STR OPTASU ID SEMI
+Rule 72    bun -> ID OPTASU OPTASU SEMI
+Rule 73    bun -> STR OPTASU OPTASU SEMI
+
+Terminals, with rules where they appear
+
+CLASS                : 16
+CONMA                : 4 56
+ELSE                 : 37
+EQOP                 : 40
+EQUALS               : 7 10 23 24 25 26 27 28 29 30 57 58 59 60 66 67 68 69 70 71
+GLOBAL               : 65
+ID                   : 5 7 8 10 10 11 12 13 16 18 19 19 23 24 25 25 26 27 27 28 28 29 29 30 30 44 56 57 58 58 59 59 60 60 60 62 63 66 67 68 69 70 70 71 71 72
+IF                   : 36 37
+INCLUDE              : 17
+KAKKO                : 7 8 11 18 19 31 32 33 48 49 55 61 62 63
+KOKKA                : 7 8 11 18 19 31 32 33 48 49 55 61 62 63
+LAMDA                : 7
+LBRACE               : 7 11 12 13 16 17 18 36 37 37 38 64 65
+LISL                 : 24 25 26 57 58 59 60
+LISR                 : 24 25 26 57 58 59 60
+NUMBER               : 27 28 29 30 43 50 57 59 67 69
+OPKAKERU             : 28 52
+OPMIN                : 29 50 53
+OPTASU               : 27 51 70 71 72 72 73 73
+OPWARU               : 30 54
+PASS                 : 20 47 48 49 49
+PIRIOD               : 19
+RBRACE               : 7 11 12 13 16 17 18 36 37 37 38 64 65
+RESERV               : 33 57 58 59 60 61
+RETURN               : 34 35
+SEMI                 : 7 8 10 19 20 23 24 25 26 27 28 29 30 34 49 57 58 59 60 61 64 65 66 67 68 69 70 71 72 73
+STR                  : 9 24 46 57 58 66 68 70 71 73
+STRUCT               : 13
+TYPE                 : 5 6 11 11 12 12 18 23 24 25 32 45 64 64 65
+TYPEF                : 31
+WHILE                : 38
+colon                : 
+dainari              : 41
+error                : 
+syounari             : 42
+yaji                 : 11 12 18
+
+Nonterminals, with rules where they appear
+
+bun                  : 21 22 35
+bunlist              : 7 11 12 18 22 36 37 37 38
+class                : 15 16
+classf               : 14 15
+hikaku               : 36 37 40 41 42
+letlist              : 64 65 68 69
+param                : 3 4
+paramlist            : 4 7 11 18
+shiki                : 8 17 19 23 25 31 32 33 34 38 39 40 41 42 51 51 52 52 53 53 54 54 55 56 61 62
+teigi                : 1 2
+teigilist            : 2 13 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . teigilist
+    (1) teigilist -> . teigi
+    (2) teigilist -> . teigilist teigi
+    (9) teigi -> . STR
+    (11) teigi -> . TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+    (12) teigi -> . TYPE ID yaji TYPE LBRACE bunlist RBRACE
+    (13) teigi -> . STRUCT ID LBRACE teigilist RBRACE
+    (16) teigi -> . CLASS ID LBRACE class RBRACE
+    (17) teigi -> . INCLUDE LBRACE shiki RBRACE
+
+    STR             shift and go to state 3
+    TYPE            shift and go to state 4
+    STRUCT          shift and go to state 5
+    CLASS           shift and go to state 6
+    INCLUDE         shift and go to state 7
+
+    teigilist                      shift and go to state 1
+    teigi                          shift and go to state 2
+
+state 1
+
+    (0) S' -> teigilist .
+    (2) teigilist -> teigilist . teigi
+    (9) teigi -> . STR
+    (11) teigi -> . TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+    (12) teigi -> . TYPE ID yaji TYPE LBRACE bunlist RBRACE
+    (13) teigi -> . STRUCT ID LBRACE teigilist RBRACE
+    (16) teigi -> . CLASS ID LBRACE class RBRACE
+    (17) teigi -> . INCLUDE LBRACE shiki RBRACE
+
+    STR             shift and go to state 3
+    TYPE            shift and go to state 4
+    STRUCT          shift and go to state 5
+    CLASS           shift and go to state 6
+    INCLUDE         shift and go to state 7
+
+    teigi                          shift and go to state 8
+
+state 2
+
+    (1) teigilist -> teigi .
+
+    STR             reduce using rule 1 (teigilist -> teigi .)
+    TYPE            reduce using rule 1 (teigilist -> teigi .)
+    STRUCT          reduce using rule 1 (teigilist -> teigi .)
+    CLASS           reduce using rule 1 (teigilist -> teigi .)
+    INCLUDE         reduce using rule 1 (teigilist -> teigi .)
+    $end            reduce using rule 1 (teigilist -> teigi .)
+    RBRACE          reduce using rule 1 (teigilist -> teigi .)
+
+
+state 3
+
+    (9) teigi -> STR .
+
+    STR             reduce using rule 9 (teigi -> STR .)
+    TYPE            reduce using rule 9 (teigi -> STR .)
+    STRUCT          reduce using rule 9 (teigi -> STR .)
+    CLASS           reduce using rule 9 (teigi -> STR .)
+    INCLUDE         reduce using rule 9 (teigi -> STR .)
+    $end            reduce using rule 9 (teigi -> STR .)
+    RBRACE          reduce using rule 9 (teigi -> STR .)
+
+
+state 4
+
+    (11) teigi -> TYPE . ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+    (12) teigi -> TYPE . ID yaji TYPE LBRACE bunlist RBRACE
+
+    ID              shift and go to state 9
+
+
+state 5
+
+    (13) teigi -> STRUCT . ID LBRACE teigilist RBRACE
+
+    ID              shift and go to state 10
+
+
+state 6
+
+    (16) teigi -> CLASS . ID LBRACE class RBRACE
+
+    ID              shift and go to state 11
+
+
+state 7
+
+    (17) teigi -> INCLUDE . LBRACE shiki RBRACE
+
+    LBRACE          shift and go to state 12
+
+
+state 8
+
+    (2) teigilist -> teigilist teigi .
+
+    STR             reduce using rule 2 (teigilist -> teigilist teigi .)
+    TYPE            reduce using rule 2 (teigilist -> teigilist teigi .)
+    STRUCT          reduce using rule 2 (teigilist -> teigilist teigi .)
+    CLASS           reduce using rule 2 (teigilist -> teigilist teigi .)
+    INCLUDE         reduce using rule 2 (teigilist -> teigilist teigi .)
+    $end            reduce using rule 2 (teigilist -> teigilist teigi .)
+    RBRACE          reduce using rule 2 (teigilist -> teigilist teigi .)
+
+
+state 9
+
+    (11) teigi -> TYPE ID . KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+    (12) teigi -> TYPE ID . yaji TYPE LBRACE bunlist RBRACE
+
+    KAKKO           shift and go to state 13
+    yaji            shift and go to state 14
+
+
+state 10
+
+    (13) teigi -> STRUCT ID . LBRACE teigilist RBRACE
+
+    LBRACE          shift and go to state 15
+
+
+state 11
+
+    (16) teigi -> CLASS ID . LBRACE class RBRACE
+
+    LBRACE          shift and go to state 16
+
+
+state 12
+
+    (17) teigi -> INCLUDE LBRACE . shiki RBRACE
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 17
+
+state 13
+
+    (11) teigi -> TYPE ID KAKKO . paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+    (3) paramlist -> . param
+    (4) paramlist -> . paramlist CONMA param
+    (5) param -> . TYPE ID
+    (6) param -> . TYPE
+
+    TYPE            shift and go to state 26
+
+    paramlist                      shift and go to state 27
+    param                          shift and go to state 28
+
+state 14
+
+    (12) teigi -> TYPE ID yaji . TYPE LBRACE bunlist RBRACE
+
+    TYPE            shift and go to state 29
+
+
+state 15
+
+    (13) teigi -> STRUCT ID LBRACE . teigilist RBRACE
+    (1) teigilist -> . teigi
+    (2) teigilist -> . teigilist teigi
+    (9) teigi -> . STR
+    (11) teigi -> . TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+    (12) teigi -> . TYPE ID yaji TYPE LBRACE bunlist RBRACE
+    (13) teigi -> . STRUCT ID LBRACE teigilist RBRACE
+    (16) teigi -> . CLASS ID LBRACE class RBRACE
+    (17) teigi -> . INCLUDE LBRACE shiki RBRACE
+
+    STR             shift and go to state 3
+    TYPE            shift and go to state 4
+    STRUCT          shift and go to state 5
+    CLASS           shift and go to state 6
+    INCLUDE         shift and go to state 7
+
+    teigilist                      shift and go to state 30
+    teigi                          shift and go to state 2
+
+state 16
+
+    (16) teigi -> CLASS ID LBRACE . class RBRACE
+    (14) class -> . classf
+    (15) class -> . class classf
+    (18) classf -> . ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+
+    ID              shift and go to state 31
+
+    class                          shift and go to state 32
+    classf                         shift and go to state 33
+
+state 17
+
+    (17) teigi -> INCLUDE LBRACE shiki . RBRACE
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    RBRACE          shift and go to state 34
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 18
+
+    (31) shiki -> TYPEF . KAKKO shiki KOKKA
+
+    KAKKO           shift and go to state 40
+
+
+state 19
+
+    (55) shiki -> KAKKO . shiki KOKKA
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 41
+
+state 20
+
+    (32) shiki -> TYPE . KAKKO shiki KOKKA
+    (45) shiki -> TYPE .
+
+    KAKKO           shift and go to state 42
+    RBRACE          reduce using rule 45 (shiki -> TYPE .)
+    OPTASU          reduce using rule 45 (shiki -> TYPE .)
+    OPKAKERU        reduce using rule 45 (shiki -> TYPE .)
+    OPMIN           reduce using rule 45 (shiki -> TYPE .)
+    OPWARU          reduce using rule 45 (shiki -> TYPE .)
+    CONMA           reduce using rule 45 (shiki -> TYPE .)
+    KOKKA           reduce using rule 45 (shiki -> TYPE .)
+    SEMI            reduce using rule 45 (shiki -> TYPE .)
+    LBRACE          reduce using rule 45 (shiki -> TYPE .)
+    EQOP            reduce using rule 45 (shiki -> TYPE .)
+    dainari         reduce using rule 45 (shiki -> TYPE .)
+    syounari        reduce using rule 45 (shiki -> TYPE .)
+    LISR            reduce using rule 45 (shiki -> TYPE .)
+
+
+state 21
+
+    (33) shiki -> RESERV . KAKKO shiki KOKKA
+
+    KAKKO           shift and go to state 43
+
+
+state 22
+
+    (43) shiki -> NUMBER .
+
+    RBRACE          reduce using rule 43 (shiki -> NUMBER .)
+    OPTASU          reduce using rule 43 (shiki -> NUMBER .)
+    OPKAKERU        reduce using rule 43 (shiki -> NUMBER .)
+    OPMIN           reduce using rule 43 (shiki -> NUMBER .)
+    OPWARU          reduce using rule 43 (shiki -> NUMBER .)
+    CONMA           reduce using rule 43 (shiki -> NUMBER .)
+    KOKKA           reduce using rule 43 (shiki -> NUMBER .)
+    SEMI            reduce using rule 43 (shiki -> NUMBER .)
+    LBRACE          reduce using rule 43 (shiki -> NUMBER .)
+    EQOP            reduce using rule 43 (shiki -> NUMBER .)
+    dainari         reduce using rule 43 (shiki -> NUMBER .)
+    syounari        reduce using rule 43 (shiki -> NUMBER .)
+    LISR            reduce using rule 43 (shiki -> NUMBER .)
+
+
+state 23
+
+    (44) shiki -> ID .
+    (62) shiki -> ID . KAKKO shiki KOKKA
+    (63) shiki -> ID . KAKKO KOKKA
+
+    RBRACE          reduce using rule 44 (shiki -> ID .)
+    OPTASU          reduce using rule 44 (shiki -> ID .)
+    OPKAKERU        reduce using rule 44 (shiki -> ID .)
+    OPMIN           reduce using rule 44 (shiki -> ID .)
+    OPWARU          reduce using rule 44 (shiki -> ID .)
+    CONMA           reduce using rule 44 (shiki -> ID .)
+    KOKKA           reduce using rule 44 (shiki -> ID .)
+    SEMI            reduce using rule 44 (shiki -> ID .)
+    LBRACE          reduce using rule 44 (shiki -> ID .)
+    EQOP            reduce using rule 44 (shiki -> ID .)
+    dainari         reduce using rule 44 (shiki -> ID .)
+    syounari        reduce using rule 44 (shiki -> ID .)
+    LISR            reduce using rule 44 (shiki -> ID .)
+    KAKKO           shift and go to state 44
+
+
+state 24
+
+    (46) shiki -> STR .
+
+    RBRACE          reduce using rule 46 (shiki -> STR .)
+    OPTASU          reduce using rule 46 (shiki -> STR .)
+    OPKAKERU        reduce using rule 46 (shiki -> STR .)
+    OPMIN           reduce using rule 46 (shiki -> STR .)
+    OPWARU          reduce using rule 46 (shiki -> STR .)
+    CONMA           reduce using rule 46 (shiki -> STR .)
+    KOKKA           reduce using rule 46 (shiki -> STR .)
+    SEMI            reduce using rule 46 (shiki -> STR .)
+    LBRACE          reduce using rule 46 (shiki -> STR .)
+    EQOP            reduce using rule 46 (shiki -> STR .)
+    dainari         reduce using rule 46 (shiki -> STR .)
+    syounari        reduce using rule 46 (shiki -> STR .)
+    LISR            reduce using rule 46 (shiki -> STR .)
+
+
+state 25
+
+    (50) shiki -> OPMIN . NUMBER
+
+    NUMBER          shift and go to state 45
+
+
+state 26
+
+    (5) param -> TYPE . ID
+    (6) param -> TYPE .
+
+    ID              shift and go to state 46
+    KOKKA           reduce using rule 6 (param -> TYPE .)
+    CONMA           reduce using rule 6 (param -> TYPE .)
+
+
+state 27
+
+    (11) teigi -> TYPE ID KAKKO paramlist . KOKKA yaji TYPE LBRACE bunlist RBRACE
+    (4) paramlist -> paramlist . CONMA param
+
+    KOKKA           shift and go to state 47
+    CONMA           shift and go to state 48
+
+
+state 28
+
+    (3) paramlist -> param .
+
+    KOKKA           reduce using rule 3 (paramlist -> param .)
+    CONMA           reduce using rule 3 (paramlist -> param .)
+
+
+state 29
+
+    (12) teigi -> TYPE ID yaji TYPE . LBRACE bunlist RBRACE
+
+    LBRACE          shift and go to state 49
+
+
+state 30
+
+    (13) teigi -> STRUCT ID LBRACE teigilist . RBRACE
+    (2) teigilist -> teigilist . teigi
+    (9) teigi -> . STR
+    (11) teigi -> . TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+    (12) teigi -> . TYPE ID yaji TYPE LBRACE bunlist RBRACE
+    (13) teigi -> . STRUCT ID LBRACE teigilist RBRACE
+    (16) teigi -> . CLASS ID LBRACE class RBRACE
+    (17) teigi -> . INCLUDE LBRACE shiki RBRACE
+
+    RBRACE          shift and go to state 50
+    STR             shift and go to state 3
+    TYPE            shift and go to state 4
+    STRUCT          shift and go to state 5
+    CLASS           shift and go to state 6
+    INCLUDE         shift and go to state 7
+
+    teigi                          shift and go to state 8
+
+state 31
+
+    (18) classf -> ID . KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+
+    KAKKO           shift and go to state 51
+
+
+state 32
+
+    (16) teigi -> CLASS ID LBRACE class . RBRACE
+    (15) class -> class . classf
+    (18) classf -> . ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+
+    RBRACE          shift and go to state 52
+    ID              shift and go to state 31
+
+    classf                         shift and go to state 53
+
+state 33
+
+    (14) class -> classf .
+
+    RBRACE          reduce using rule 14 (class -> classf .)
+    ID              reduce using rule 14 (class -> classf .)
+
+
+state 34
+
+    (17) teigi -> INCLUDE LBRACE shiki RBRACE .
+
+    STR             reduce using rule 17 (teigi -> INCLUDE LBRACE shiki RBRACE .)
+    TYPE            reduce using rule 17 (teigi -> INCLUDE LBRACE shiki RBRACE .)
+    STRUCT          reduce using rule 17 (teigi -> INCLUDE LBRACE shiki RBRACE .)
+    CLASS           reduce using rule 17 (teigi -> INCLUDE LBRACE shiki RBRACE .)
+    INCLUDE         reduce using rule 17 (teigi -> INCLUDE LBRACE shiki RBRACE .)
+    $end            reduce using rule 17 (teigi -> INCLUDE LBRACE shiki RBRACE .)
+    RBRACE          reduce using rule 17 (teigi -> INCLUDE LBRACE shiki RBRACE .)
+
+
+state 35
+
+    (51) shiki -> shiki OPTASU . shiki
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 54
+
+state 36
+
+    (52) shiki -> shiki OPKAKERU . shiki
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 55
+
+state 37
+
+    (53) shiki -> shiki OPMIN . shiki
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 56
+
+state 38
+
+    (54) shiki -> shiki OPWARU . shiki
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 57
+
+state 39
+
+    (56) shiki -> shiki CONMA . ID
+
+    ID              shift and go to state 58
+
+
+state 40
+
+    (31) shiki -> TYPEF KAKKO . shiki KOKKA
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 59
+
+state 41
+
+    (55) shiki -> KAKKO shiki . KOKKA
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    KOKKA           shift and go to state 60
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 42
+
+    (32) shiki -> TYPE KAKKO . shiki KOKKA
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 61
+
+state 43
+
+    (33) shiki -> RESERV KAKKO . shiki KOKKA
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 62
+
+state 44
+
+    (62) shiki -> ID KAKKO . shiki KOKKA
+    (63) shiki -> ID KAKKO . KOKKA
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    KOKKA           shift and go to state 64
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 63
+
+state 45
+
+    (50) shiki -> OPMIN NUMBER .
+
+    RBRACE          reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    OPTASU          reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    OPKAKERU        reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    OPMIN           reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    OPWARU          reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    CONMA           reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    KOKKA           reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    SEMI            reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    LBRACE          reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    EQOP            reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    dainari         reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    syounari        reduce using rule 50 (shiki -> OPMIN NUMBER .)
+    LISR            reduce using rule 50 (shiki -> OPMIN NUMBER .)
+
+
+state 46
+
+    (5) param -> TYPE ID .
+
+    KOKKA           reduce using rule 5 (param -> TYPE ID .)
+    CONMA           reduce using rule 5 (param -> TYPE ID .)
+
+
+state 47
+
+    (11) teigi -> TYPE ID KAKKO paramlist KOKKA . yaji TYPE LBRACE bunlist RBRACE
+
+    yaji            shift and go to state 65
+
+
+state 48
+
+    (4) paramlist -> paramlist CONMA . param
+    (5) param -> . TYPE ID
+    (6) param -> . TYPE
+
+    TYPE            shift and go to state 26
+
+    param                          shift and go to state 66
+
+state 49
+
+    (12) teigi -> TYPE ID yaji TYPE LBRACE . bunlist RBRACE
+    (21) bunlist -> . bun
+    (22) bunlist -> . bunlist bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bunlist                        shift and go to state 69
+    bun                            shift and go to state 70
+
+state 50
+
+    (13) teigi -> STRUCT ID LBRACE teigilist RBRACE .
+
+    STR             reduce using rule 13 (teigi -> STRUCT ID LBRACE teigilist RBRACE .)
+    TYPE            reduce using rule 13 (teigi -> STRUCT ID LBRACE teigilist RBRACE .)
+    STRUCT          reduce using rule 13 (teigi -> STRUCT ID LBRACE teigilist RBRACE .)
+    CLASS           reduce using rule 13 (teigi -> STRUCT ID LBRACE teigilist RBRACE .)
+    INCLUDE         reduce using rule 13 (teigi -> STRUCT ID LBRACE teigilist RBRACE .)
+    $end            reduce using rule 13 (teigi -> STRUCT ID LBRACE teigilist RBRACE .)
+    RBRACE          reduce using rule 13 (teigi -> STRUCT ID LBRACE teigilist RBRACE .)
+
+
+state 51
+
+    (18) classf -> ID KAKKO . paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE
+    (3) paramlist -> . param
+    (4) paramlist -> . paramlist CONMA param
+    (5) param -> . TYPE ID
+    (6) param -> . TYPE
+
+    TYPE            shift and go to state 26
+
+    paramlist                      shift and go to state 78
+    param                          shift and go to state 28
+
+state 52
+
+    (16) teigi -> CLASS ID LBRACE class RBRACE .
+
+    STR             reduce using rule 16 (teigi -> CLASS ID LBRACE class RBRACE .)
+    TYPE            reduce using rule 16 (teigi -> CLASS ID LBRACE class RBRACE .)
+    STRUCT          reduce using rule 16 (teigi -> CLASS ID LBRACE class RBRACE .)
+    CLASS           reduce using rule 16 (teigi -> CLASS ID LBRACE class RBRACE .)
+    INCLUDE         reduce using rule 16 (teigi -> CLASS ID LBRACE class RBRACE .)
+    $end            reduce using rule 16 (teigi -> CLASS ID LBRACE class RBRACE .)
+    RBRACE          reduce using rule 16 (teigi -> CLASS ID LBRACE class RBRACE .)
+
+
+state 53
+
+    (15) class -> class classf .
+
+    RBRACE          reduce using rule 15 (class -> class classf .)
+    ID              reduce using rule 15 (class -> class classf .)
+
+
+state 54
+
+    (51) shiki -> shiki OPTASU shiki .
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    RBRACE          reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    OPTASU          reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    OPMIN           reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    OPWARU          reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    CONMA           reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    KOKKA           reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    SEMI            reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    LBRACE          reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    EQOP            reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    dainari         reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    syounari        reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    LISR            reduce using rule 51 (shiki -> shiki OPTASU shiki .)
+    OPKAKERU        shift and go to state 36
+
+  ! OPKAKERU        [ reduce using rule 51 (shiki -> shiki OPTASU shiki .) ]
+  ! OPTASU          [ shift and go to state 35 ]
+  ! OPMIN           [ shift and go to state 37 ]
+  ! OPWARU          [ shift and go to state 38 ]
+  ! CONMA           [ shift and go to state 39 ]
+
+
+state 55
+
+    (52) shiki -> shiki OPKAKERU shiki .
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    RBRACE          reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    OPTASU          reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    OPKAKERU        reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    OPMIN           reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    OPWARU          reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    CONMA           reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    KOKKA           reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    SEMI            reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    LBRACE          reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    EQOP            reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    dainari         reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    syounari        reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+    LISR            reduce using rule 52 (shiki -> shiki OPKAKERU shiki .)
+
+  ! OPTASU          [ shift and go to state 35 ]
+  ! OPKAKERU        [ shift and go to state 36 ]
+  ! OPMIN           [ shift and go to state 37 ]
+  ! OPWARU          [ shift and go to state 38 ]
+  ! CONMA           [ shift and go to state 39 ]
+
+
+state 56
+
+    (53) shiki -> shiki OPMIN shiki .
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+  ! shift/reduce conflict for OPTASU resolved as shift
+  ! shift/reduce conflict for OPKAKERU resolved as shift
+  ! shift/reduce conflict for OPMIN resolved as shift
+  ! shift/reduce conflict for OPWARU resolved as shift
+  ! shift/reduce conflict for CONMA resolved as shift
+    RBRACE          reduce using rule 53 (shiki -> shiki OPMIN shiki .)
+    KOKKA           reduce using rule 53 (shiki -> shiki OPMIN shiki .)
+    SEMI            reduce using rule 53 (shiki -> shiki OPMIN shiki .)
+    LBRACE          reduce using rule 53 (shiki -> shiki OPMIN shiki .)
+    EQOP            reduce using rule 53 (shiki -> shiki OPMIN shiki .)
+    dainari         reduce using rule 53 (shiki -> shiki OPMIN shiki .)
+    syounari        reduce using rule 53 (shiki -> shiki OPMIN shiki .)
+    LISR            reduce using rule 53 (shiki -> shiki OPMIN shiki .)
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+  ! OPTASU          [ reduce using rule 53 (shiki -> shiki OPMIN shiki .) ]
+  ! OPKAKERU        [ reduce using rule 53 (shiki -> shiki OPMIN shiki .) ]
+  ! OPMIN           [ reduce using rule 53 (shiki -> shiki OPMIN shiki .) ]
+  ! OPWARU          [ reduce using rule 53 (shiki -> shiki OPMIN shiki .) ]
+  ! CONMA           [ reduce using rule 53 (shiki -> shiki OPMIN shiki .) ]
+
+
+state 57
+
+    (54) shiki -> shiki OPWARU shiki .
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+  ! shift/reduce conflict for OPTASU resolved as shift
+  ! shift/reduce conflict for OPKAKERU resolved as shift
+  ! shift/reduce conflict for OPMIN resolved as shift
+  ! shift/reduce conflict for OPWARU resolved as shift
+  ! shift/reduce conflict for CONMA resolved as shift
+    RBRACE          reduce using rule 54 (shiki -> shiki OPWARU shiki .)
+    KOKKA           reduce using rule 54 (shiki -> shiki OPWARU shiki .)
+    SEMI            reduce using rule 54 (shiki -> shiki OPWARU shiki .)
+    LBRACE          reduce using rule 54 (shiki -> shiki OPWARU shiki .)
+    EQOP            reduce using rule 54 (shiki -> shiki OPWARU shiki .)
+    dainari         reduce using rule 54 (shiki -> shiki OPWARU shiki .)
+    syounari        reduce using rule 54 (shiki -> shiki OPWARU shiki .)
+    LISR            reduce using rule 54 (shiki -> shiki OPWARU shiki .)
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+  ! OPTASU          [ reduce using rule 54 (shiki -> shiki OPWARU shiki .) ]
+  ! OPKAKERU        [ reduce using rule 54 (shiki -> shiki OPWARU shiki .) ]
+  ! OPMIN           [ reduce using rule 54 (shiki -> shiki OPWARU shiki .) ]
+  ! OPWARU          [ reduce using rule 54 (shiki -> shiki OPWARU shiki .) ]
+  ! CONMA           [ reduce using rule 54 (shiki -> shiki OPWARU shiki .) ]
+
+
+state 58
+
+    (56) shiki -> shiki CONMA ID .
+
+    RBRACE          reduce using rule 56 (shiki -> shiki CONMA ID .)
+    OPTASU          reduce using rule 56 (shiki -> shiki CONMA ID .)
+    OPKAKERU        reduce using rule 56 (shiki -> shiki CONMA ID .)
+    OPMIN           reduce using rule 56 (shiki -> shiki CONMA ID .)
+    OPWARU          reduce using rule 56 (shiki -> shiki CONMA ID .)
+    CONMA           reduce using rule 56 (shiki -> shiki CONMA ID .)
+    KOKKA           reduce using rule 56 (shiki -> shiki CONMA ID .)
+    SEMI            reduce using rule 56 (shiki -> shiki CONMA ID .)
+    LBRACE          reduce using rule 56 (shiki -> shiki CONMA ID .)
+    EQOP            reduce using rule 56 (shiki -> shiki CONMA ID .)
+    dainari         reduce using rule 56 (shiki -> shiki CONMA ID .)
+    syounari        reduce using rule 56 (shiki -> shiki CONMA ID .)
+    LISR            reduce using rule 56 (shiki -> shiki CONMA ID .)
+
+
+state 59
+
+    (31) shiki -> TYPEF KAKKO shiki . KOKKA
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    KOKKA           shift and go to state 79
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 60
+
+    (55) shiki -> KAKKO shiki KOKKA .
+
+    RBRACE          reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    OPTASU          reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    OPKAKERU        reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    OPMIN           reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    OPWARU          reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    CONMA           reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    KOKKA           reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    SEMI            reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    LBRACE          reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    EQOP            reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    dainari         reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    syounari        reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+    LISR            reduce using rule 55 (shiki -> KAKKO shiki KOKKA .)
+
+
+state 61
+
+    (32) shiki -> TYPE KAKKO shiki . KOKKA
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    KOKKA           shift and go to state 80
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 62
+
+    (33) shiki -> RESERV KAKKO shiki . KOKKA
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    KOKKA           shift and go to state 81
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 63
+
+    (62) shiki -> ID KAKKO shiki . KOKKA
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    KOKKA           shift and go to state 82
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 64
+
+    (63) shiki -> ID KAKKO KOKKA .
+
+    RBRACE          reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    OPTASU          reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    OPKAKERU        reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    OPMIN           reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    OPWARU          reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    CONMA           reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    KOKKA           reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    SEMI            reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    LBRACE          reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    EQOP            reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    dainari         reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    syounari        reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+    LISR            reduce using rule 63 (shiki -> ID KAKKO KOKKA .)
+
+
+state 65
+
+    (11) teigi -> TYPE ID KAKKO paramlist KOKKA yaji . TYPE LBRACE bunlist RBRACE
+
+    TYPE            shift and go to state 83
+
+
+state 66
+
+    (4) paramlist -> paramlist CONMA param .
+
+    KOKKA           reduce using rule 4 (paramlist -> paramlist CONMA param .)
+    CONMA           reduce using rule 4 (paramlist -> paramlist CONMA param .)
+
+
+state 67
+
+    (23) bun -> TYPE . ID EQUALS shiki SEMI
+    (24) bun -> TYPE . ID EQUALS LISL STR LISR SEMI
+    (25) bun -> TYPE . ID EQUALS ID LISL shiki LISR SEMI
+    (64) bun -> TYPE . TYPE LBRACE letlist RBRACE SEMI
+
+    ID              shift and go to state 85
+    TYPE            shift and go to state 84
+
+
+state 68
+
+    (7) bun -> ID . EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> ID . KAKKO shiki KOKKA SEMI
+    (10) bun -> ID . EQUALS ID SEMI
+    (19) bun -> ID . PIRIOD ID KAKKO shiki KOKKA SEMI
+    (26) bun -> ID . EQUALS LISL LISR SEMI
+    (27) bun -> ID . EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> ID . EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> ID . EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> ID . EQUALS ID OPWARU NUMBER SEMI
+    (70) bun -> ID . EQUALS ID OPTASU STR SEMI
+    (71) bun -> ID . EQUALS STR OPTASU ID SEMI
+    (72) bun -> ID . OPTASU OPTASU SEMI
+
+    EQUALS          shift and go to state 86
+    KAKKO           shift and go to state 87
+    PIRIOD          shift and go to state 88
+    OPTASU          shift and go to state 89
+
+
+state 69
+
+    (12) teigi -> TYPE ID yaji TYPE LBRACE bunlist . RBRACE
+    (22) bunlist -> bunlist . bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    RBRACE          shift and go to state 90
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bun                            shift and go to state 91
+
+state 70
+
+    (21) bunlist -> bun .
+
+    RBRACE          reduce using rule 21 (bunlist -> bun .)
+    ID              reduce using rule 21 (bunlist -> bun .)
+    PASS            reduce using rule 21 (bunlist -> bun .)
+    TYPE            reduce using rule 21 (bunlist -> bun .)
+    RETURN          reduce using rule 21 (bunlist -> bun .)
+    IF              reduce using rule 21 (bunlist -> bun .)
+    WHILE           reduce using rule 21 (bunlist -> bun .)
+    RESERV          reduce using rule 21 (bunlist -> bun .)
+    GLOBAL          reduce using rule 21 (bunlist -> bun .)
+    STR             reduce using rule 21 (bunlist -> bun .)
+
+
+state 71
+
+    (20) bun -> PASS . SEMI
+    (47) bun -> PASS .
+    (48) bun -> PASS . KAKKO KOKKA
+    (49) bun -> PASS . KAKKO PASS KOKKA SEMI
+
+    SEMI            shift and go to state 92
+    RBRACE          reduce using rule 47 (bun -> PASS .)
+    ID              reduce using rule 47 (bun -> PASS .)
+    PASS            reduce using rule 47 (bun -> PASS .)
+    TYPE            reduce using rule 47 (bun -> PASS .)
+    RETURN          reduce using rule 47 (bun -> PASS .)
+    IF              reduce using rule 47 (bun -> PASS .)
+    WHILE           reduce using rule 47 (bun -> PASS .)
+    RESERV          reduce using rule 47 (bun -> PASS .)
+    GLOBAL          reduce using rule 47 (bun -> PASS .)
+    STR             reduce using rule 47 (bun -> PASS .)
+    KAKKO           shift and go to state 93
+
+
+state 72
+
+    (73) bun -> STR . OPTASU OPTASU SEMI
+
+    OPTASU          shift and go to state 94
+
+
+state 73
+
+    (34) bun -> RETURN . shiki SEMI
+    (35) bun -> RETURN . bun
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 97
+    RESERV          shift and go to state 98
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 99
+    STR             shift and go to state 100
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+    PASS            shift and go to state 71
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    GLOBAL          shift and go to state 77
+
+    shiki                          shift and go to state 95
+    bun                            shift and go to state 96
+
+state 74
+
+    (36) bun -> IF . hikaku LBRACE bunlist RBRACE
+    (37) bun -> IF . hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (39) hikaku -> . shiki
+    (40) hikaku -> . hikaku EQOP shiki
+    (41) hikaku -> . hikaku dainari shiki
+    (42) hikaku -> . hikaku syounari shiki
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    hikaku                         shift and go to state 101
+    shiki                          shift and go to state 102
+
+state 75
+
+    (38) bun -> WHILE . shiki LBRACE bunlist RBRACE
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 103
+
+state 76
+
+    (57) bun -> RESERV . ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> RESERV . ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> RESERV . ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> RESERV . ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> RESERV . KAKKO shiki KOKKA SEMI
+
+    ID              shift and go to state 104
+    KAKKO           shift and go to state 105
+
+
+state 77
+
+    (65) bun -> GLOBAL . TYPE LBRACE letlist RBRACE SEMI
+
+    TYPE            shift and go to state 106
+
+
+state 78
+
+    (18) classf -> ID KAKKO paramlist . KOKKA yaji TYPE LBRACE bunlist RBRACE
+    (4) paramlist -> paramlist . CONMA param
+
+    KOKKA           shift and go to state 107
+    CONMA           shift and go to state 48
+
+
+state 79
+
+    (31) shiki -> TYPEF KAKKO shiki KOKKA .
+
+    RBRACE          reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    OPTASU          reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    OPKAKERU        reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    OPMIN           reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    OPWARU          reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    CONMA           reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    KOKKA           reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    SEMI            reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    LBRACE          reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    EQOP            reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    dainari         reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    syounari        reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+    LISR            reduce using rule 31 (shiki -> TYPEF KAKKO shiki KOKKA .)
+
+
+state 80
+
+    (32) shiki -> TYPE KAKKO shiki KOKKA .
+
+    RBRACE          reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    OPTASU          reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    OPKAKERU        reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    OPMIN           reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    OPWARU          reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    CONMA           reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    KOKKA           reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    SEMI            reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    LBRACE          reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    EQOP            reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    dainari         reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    syounari        reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+    LISR            reduce using rule 32 (shiki -> TYPE KAKKO shiki KOKKA .)
+
+
+state 81
+
+    (33) shiki -> RESERV KAKKO shiki KOKKA .
+
+    RBRACE          reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    OPTASU          reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    OPKAKERU        reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    OPMIN           reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    OPWARU          reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    CONMA           reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    KOKKA           reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    SEMI            reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    LBRACE          reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    EQOP            reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    dainari         reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    syounari        reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    LISR            reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+
+
+state 82
+
+    (62) shiki -> ID KAKKO shiki KOKKA .
+
+    RBRACE          reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    OPTASU          reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    OPKAKERU        reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    OPMIN           reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    OPWARU          reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    CONMA           reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    KOKKA           reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    SEMI            reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    LBRACE          reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    EQOP            reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    dainari         reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    syounari        reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    LISR            reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+
+
+state 83
+
+    (11) teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE . LBRACE bunlist RBRACE
+
+    LBRACE          shift and go to state 108
+
+
+state 84
+
+    (64) bun -> TYPE TYPE . LBRACE letlist RBRACE SEMI
+
+    LBRACE          shift and go to state 109
+
+
+state 85
+
+    (23) bun -> TYPE ID . EQUALS shiki SEMI
+    (24) bun -> TYPE ID . EQUALS LISL STR LISR SEMI
+    (25) bun -> TYPE ID . EQUALS ID LISL shiki LISR SEMI
+
+    EQUALS          shift and go to state 110
+
+
+state 86
+
+    (7) bun -> ID EQUALS . LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (10) bun -> ID EQUALS . ID SEMI
+    (26) bun -> ID EQUALS . LISL LISR SEMI
+    (27) bun -> ID EQUALS . ID OPTASU NUMBER SEMI
+    (28) bun -> ID EQUALS . ID OPKAKERU NUMBER SEMI
+    (29) bun -> ID EQUALS . ID OPMIN NUMBER SEMI
+    (30) bun -> ID EQUALS . ID OPWARU NUMBER SEMI
+    (70) bun -> ID EQUALS . ID OPTASU STR SEMI
+    (71) bun -> ID EQUALS . STR OPTASU ID SEMI
+
+    LAMDA           shift and go to state 112
+    ID              shift and go to state 111
+    LISL            shift and go to state 113
+    STR             shift and go to state 114
+
+
+state 87
+
+    (8) bun -> ID KAKKO . shiki KOKKA SEMI
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 115
+
+state 88
+
+    (19) bun -> ID PIRIOD . ID KAKKO shiki KOKKA SEMI
+
+    ID              shift and go to state 116
+
+
+state 89
+
+    (72) bun -> ID OPTASU . OPTASU SEMI
+
+    OPTASU          shift and go to state 117
+
+
+state 90
+
+    (12) teigi -> TYPE ID yaji TYPE LBRACE bunlist RBRACE .
+
+    STR             reduce using rule 12 (teigi -> TYPE ID yaji TYPE LBRACE bunlist RBRACE .)
+    TYPE            reduce using rule 12 (teigi -> TYPE ID yaji TYPE LBRACE bunlist RBRACE .)
+    STRUCT          reduce using rule 12 (teigi -> TYPE ID yaji TYPE LBRACE bunlist RBRACE .)
+    CLASS           reduce using rule 12 (teigi -> TYPE ID yaji TYPE LBRACE bunlist RBRACE .)
+    INCLUDE         reduce using rule 12 (teigi -> TYPE ID yaji TYPE LBRACE bunlist RBRACE .)
+    $end            reduce using rule 12 (teigi -> TYPE ID yaji TYPE LBRACE bunlist RBRACE .)
+    RBRACE          reduce using rule 12 (teigi -> TYPE ID yaji TYPE LBRACE bunlist RBRACE .)
+
+
+state 91
+
+    (22) bunlist -> bunlist bun .
+
+    RBRACE          reduce using rule 22 (bunlist -> bunlist bun .)
+    ID              reduce using rule 22 (bunlist -> bunlist bun .)
+    PASS            reduce using rule 22 (bunlist -> bunlist bun .)
+    TYPE            reduce using rule 22 (bunlist -> bunlist bun .)
+    RETURN          reduce using rule 22 (bunlist -> bunlist bun .)
+    IF              reduce using rule 22 (bunlist -> bunlist bun .)
+    WHILE           reduce using rule 22 (bunlist -> bunlist bun .)
+    RESERV          reduce using rule 22 (bunlist -> bunlist bun .)
+    GLOBAL          reduce using rule 22 (bunlist -> bunlist bun .)
+    STR             reduce using rule 22 (bunlist -> bunlist bun .)
+
+
+state 92
+
+    (20) bun -> PASS SEMI .
+
+    RBRACE          reduce using rule 20 (bun -> PASS SEMI .)
+    ID              reduce using rule 20 (bun -> PASS SEMI .)
+    PASS            reduce using rule 20 (bun -> PASS SEMI .)
+    TYPE            reduce using rule 20 (bun -> PASS SEMI .)
+    RETURN          reduce using rule 20 (bun -> PASS SEMI .)
+    IF              reduce using rule 20 (bun -> PASS SEMI .)
+    WHILE           reduce using rule 20 (bun -> PASS SEMI .)
+    RESERV          reduce using rule 20 (bun -> PASS SEMI .)
+    GLOBAL          reduce using rule 20 (bun -> PASS SEMI .)
+    STR             reduce using rule 20 (bun -> PASS SEMI .)
+
+
+state 93
+
+    (48) bun -> PASS KAKKO . KOKKA
+    (49) bun -> PASS KAKKO . PASS KOKKA SEMI
+
+    KOKKA           shift and go to state 119
+    PASS            shift and go to state 118
+
+
+state 94
+
+    (73) bun -> STR OPTASU . OPTASU SEMI
+
+    OPTASU          shift and go to state 120
+
+
+state 95
+
+    (34) bun -> RETURN shiki . SEMI
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    SEMI            shift and go to state 121
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 96
+
+    (35) bun -> RETURN bun .
+
+    RBRACE          reduce using rule 35 (bun -> RETURN bun .)
+    ID              reduce using rule 35 (bun -> RETURN bun .)
+    PASS            reduce using rule 35 (bun -> RETURN bun .)
+    TYPE            reduce using rule 35 (bun -> RETURN bun .)
+    RETURN          reduce using rule 35 (bun -> RETURN bun .)
+    IF              reduce using rule 35 (bun -> RETURN bun .)
+    WHILE           reduce using rule 35 (bun -> RETURN bun .)
+    RESERV          reduce using rule 35 (bun -> RETURN bun .)
+    GLOBAL          reduce using rule 35 (bun -> RETURN bun .)
+    STR             reduce using rule 35 (bun -> RETURN bun .)
+
+
+state 97
+
+    (32) shiki -> TYPE . KAKKO shiki KOKKA
+    (45) shiki -> TYPE .
+    (23) bun -> TYPE . ID EQUALS shiki SEMI
+    (24) bun -> TYPE . ID EQUALS LISL STR LISR SEMI
+    (25) bun -> TYPE . ID EQUALS ID LISL shiki LISR SEMI
+    (64) bun -> TYPE . TYPE LBRACE letlist RBRACE SEMI
+
+    KAKKO           shift and go to state 42
+    SEMI            reduce using rule 45 (shiki -> TYPE .)
+    OPTASU          reduce using rule 45 (shiki -> TYPE .)
+    OPKAKERU        reduce using rule 45 (shiki -> TYPE .)
+    OPMIN           reduce using rule 45 (shiki -> TYPE .)
+    OPWARU          reduce using rule 45 (shiki -> TYPE .)
+    CONMA           reduce using rule 45 (shiki -> TYPE .)
+    ID              shift and go to state 85
+    TYPE            shift and go to state 84
+
+
+state 98
+
+    (33) shiki -> RESERV . KAKKO shiki KOKKA
+    (57) bun -> RESERV . ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> RESERV . ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> RESERV . ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> RESERV . ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> RESERV . KAKKO shiki KOKKA SEMI
+
+    KAKKO           shift and go to state 122
+    ID              shift and go to state 104
+
+
+state 99
+
+    (44) shiki -> ID .
+    (62) shiki -> ID . KAKKO shiki KOKKA
+    (63) shiki -> ID . KAKKO KOKKA
+    (7) bun -> ID . EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> ID . KAKKO shiki KOKKA SEMI
+    (10) bun -> ID . EQUALS ID SEMI
+    (19) bun -> ID . PIRIOD ID KAKKO shiki KOKKA SEMI
+    (26) bun -> ID . EQUALS LISL LISR SEMI
+    (27) bun -> ID . EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> ID . EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> ID . EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> ID . EQUALS ID OPWARU NUMBER SEMI
+    (70) bun -> ID . EQUALS ID OPTASU STR SEMI
+    (71) bun -> ID . EQUALS STR OPTASU ID SEMI
+    (72) bun -> ID . OPTASU OPTASU SEMI
+
+  ! shift/reduce conflict for OPTASU resolved as shift
+    SEMI            reduce using rule 44 (shiki -> ID .)
+    OPKAKERU        reduce using rule 44 (shiki -> ID .)
+    OPMIN           reduce using rule 44 (shiki -> ID .)
+    OPWARU          reduce using rule 44 (shiki -> ID .)
+    CONMA           reduce using rule 44 (shiki -> ID .)
+    KAKKO           shift and go to state 123
+    EQUALS          shift and go to state 86
+    PIRIOD          shift and go to state 88
+    OPTASU          shift and go to state 89
+
+  ! OPTASU          [ reduce using rule 44 (shiki -> ID .) ]
+
+
+state 100
+
+    (46) shiki -> STR .
+    (73) bun -> STR . OPTASU OPTASU SEMI
+
+  ! shift/reduce conflict for OPTASU resolved as shift
+    SEMI            reduce using rule 46 (shiki -> STR .)
+    OPKAKERU        reduce using rule 46 (shiki -> STR .)
+    OPMIN           reduce using rule 46 (shiki -> STR .)
+    OPWARU          reduce using rule 46 (shiki -> STR .)
+    CONMA           reduce using rule 46 (shiki -> STR .)
+    OPTASU          shift and go to state 94
+
+  ! OPTASU          [ reduce using rule 46 (shiki -> STR .) ]
+
+
+state 101
+
+    (36) bun -> IF hikaku . LBRACE bunlist RBRACE
+    (37) bun -> IF hikaku . LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (40) hikaku -> hikaku . EQOP shiki
+    (41) hikaku -> hikaku . dainari shiki
+    (42) hikaku -> hikaku . syounari shiki
+
+    LBRACE          shift and go to state 124
+    EQOP            shift and go to state 125
+    dainari         shift and go to state 126
+    syounari        shift and go to state 127
+
+
+state 102
+
+    (39) hikaku -> shiki .
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    LBRACE          reduce using rule 39 (hikaku -> shiki .)
+    EQOP            reduce using rule 39 (hikaku -> shiki .)
+    dainari         reduce using rule 39 (hikaku -> shiki .)
+    syounari        reduce using rule 39 (hikaku -> shiki .)
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 103
+
+    (38) bun -> WHILE shiki . LBRACE bunlist RBRACE
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    LBRACE          shift and go to state 128
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 104
+
+    (57) bun -> RESERV ID . LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> RESERV ID . LISL ID LISR EQUALS STR SEMI
+    (59) bun -> RESERV ID . LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> RESERV ID . LISL ID LISR EQUALS ID SEMI
+
+    LISL            shift and go to state 129
+
+
+state 105
+
+    (61) bun -> RESERV KAKKO . shiki KOKKA SEMI
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 130
+
+state 106
+
+    (65) bun -> GLOBAL TYPE . LBRACE letlist RBRACE SEMI
+
+    LBRACE          shift and go to state 131
+
+
+state 107
+
+    (18) classf -> ID KAKKO paramlist KOKKA . yaji TYPE LBRACE bunlist RBRACE
+
+    yaji            shift and go to state 132
+
+
+state 108
+
+    (11) teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE . bunlist RBRACE
+    (21) bunlist -> . bun
+    (22) bunlist -> . bunlist bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bunlist                        shift and go to state 133
+    bun                            shift and go to state 70
+
+state 109
+
+    (64) bun -> TYPE TYPE LBRACE . letlist RBRACE SEMI
+    (66) letlist -> . ID EQUALS STR SEMI
+    (67) letlist -> . ID EQUALS NUMBER SEMI
+    (68) letlist -> . letlist ID EQUALS STR SEMI
+    (69) letlist -> . letlist ID EQUALS NUMBER SEMI
+
+    ID              shift and go to state 135
+
+    letlist                        shift and go to state 134
+
+state 110
+
+    (23) bun -> TYPE ID EQUALS . shiki SEMI
+    (24) bun -> TYPE ID EQUALS . LISL STR LISR SEMI
+    (25) bun -> TYPE ID EQUALS . ID LISL shiki LISR SEMI
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    LISL            shift and go to state 138
+    ID              shift and go to state 136
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 137
+
+state 111
+
+    (10) bun -> ID EQUALS ID . SEMI
+    (27) bun -> ID EQUALS ID . OPTASU NUMBER SEMI
+    (28) bun -> ID EQUALS ID . OPKAKERU NUMBER SEMI
+    (29) bun -> ID EQUALS ID . OPMIN NUMBER SEMI
+    (30) bun -> ID EQUALS ID . OPWARU NUMBER SEMI
+    (70) bun -> ID EQUALS ID . OPTASU STR SEMI
+
+    SEMI            shift and go to state 139
+    OPTASU          shift and go to state 140
+    OPKAKERU        shift and go to state 141
+    OPMIN           shift and go to state 142
+    OPWARU          shift and go to state 143
+
+
+state 112
+
+    (7) bun -> ID EQUALS LAMDA . KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+
+    KAKKO           shift and go to state 144
+
+
+state 113
+
+    (26) bun -> ID EQUALS LISL . LISR SEMI
+
+    LISR            shift and go to state 145
+
+
+state 114
+
+    (71) bun -> ID EQUALS STR . OPTASU ID SEMI
+
+    OPTASU          shift and go to state 146
+
+
+state 115
+
+    (8) bun -> ID KAKKO shiki . KOKKA SEMI
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    KOKKA           shift and go to state 147
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 116
+
+    (19) bun -> ID PIRIOD ID . KAKKO shiki KOKKA SEMI
+
+    KAKKO           shift and go to state 148
+
+
+state 117
+
+    (72) bun -> ID OPTASU OPTASU . SEMI
+
+    SEMI            shift and go to state 149
+
+
+state 118
+
+    (49) bun -> PASS KAKKO PASS . KOKKA SEMI
+
+    KOKKA           shift and go to state 150
+
+
+state 119
+
+    (48) bun -> PASS KAKKO KOKKA .
+
+    RBRACE          reduce using rule 48 (bun -> PASS KAKKO KOKKA .)
+    ID              reduce using rule 48 (bun -> PASS KAKKO KOKKA .)
+    PASS            reduce using rule 48 (bun -> PASS KAKKO KOKKA .)
+    TYPE            reduce using rule 48 (bun -> PASS KAKKO KOKKA .)
+    RETURN          reduce using rule 48 (bun -> PASS KAKKO KOKKA .)
+    IF              reduce using rule 48 (bun -> PASS KAKKO KOKKA .)
+    WHILE           reduce using rule 48 (bun -> PASS KAKKO KOKKA .)
+    RESERV          reduce using rule 48 (bun -> PASS KAKKO KOKKA .)
+    GLOBAL          reduce using rule 48 (bun -> PASS KAKKO KOKKA .)
+    STR             reduce using rule 48 (bun -> PASS KAKKO KOKKA .)
+
+
+state 120
+
+    (73) bun -> STR OPTASU OPTASU . SEMI
+
+    SEMI            shift and go to state 151
+
+
+state 121
+
+    (34) bun -> RETURN shiki SEMI .
+
+    RBRACE          reduce using rule 34 (bun -> RETURN shiki SEMI .)
+    ID              reduce using rule 34 (bun -> RETURN shiki SEMI .)
+    PASS            reduce using rule 34 (bun -> RETURN shiki SEMI .)
+    TYPE            reduce using rule 34 (bun -> RETURN shiki SEMI .)
+    RETURN          reduce using rule 34 (bun -> RETURN shiki SEMI .)
+    IF              reduce using rule 34 (bun -> RETURN shiki SEMI .)
+    WHILE           reduce using rule 34 (bun -> RETURN shiki SEMI .)
+    RESERV          reduce using rule 34 (bun -> RETURN shiki SEMI .)
+    GLOBAL          reduce using rule 34 (bun -> RETURN shiki SEMI .)
+    STR             reduce using rule 34 (bun -> RETURN shiki SEMI .)
+
+
+state 122
+
+    (33) shiki -> RESERV KAKKO . shiki KOKKA
+    (61) bun -> RESERV KAKKO . shiki KOKKA SEMI
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 152
+
+state 123
+
+    (62) shiki -> ID KAKKO . shiki KOKKA
+    (63) shiki -> ID KAKKO . KOKKA
+    (8) bun -> ID KAKKO . shiki KOKKA SEMI
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    KOKKA           shift and go to state 64
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 153
+
+state 124
+
+    (36) bun -> IF hikaku LBRACE . bunlist RBRACE
+    (37) bun -> IF hikaku LBRACE . bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (21) bunlist -> . bun
+    (22) bunlist -> . bunlist bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bunlist                        shift and go to state 154
+    bun                            shift and go to state 70
+
+state 125
+
+    (40) hikaku -> hikaku EQOP . shiki
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 155
+
+state 126
+
+    (41) hikaku -> hikaku dainari . shiki
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 156
+
+state 127
+
+    (42) hikaku -> hikaku syounari . shiki
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 157
+
+state 128
+
+    (38) bun -> WHILE shiki LBRACE . bunlist RBRACE
+    (21) bunlist -> . bun
+    (22) bunlist -> . bunlist bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bunlist                        shift and go to state 158
+    bun                            shift and go to state 70
+
+state 129
+
+    (57) bun -> RESERV ID LISL . NUMBER LISR EQUALS STR SEMI
+    (58) bun -> RESERV ID LISL . ID LISR EQUALS STR SEMI
+    (59) bun -> RESERV ID LISL . NUMBER LISR EQUALS ID SEMI
+    (60) bun -> RESERV ID LISL . ID LISR EQUALS ID SEMI
+
+    NUMBER          shift and go to state 160
+    ID              shift and go to state 159
+
+
+state 130
+
+    (61) bun -> RESERV KAKKO shiki . KOKKA SEMI
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    KOKKA           shift and go to state 161
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 131
+
+    (65) bun -> GLOBAL TYPE LBRACE . letlist RBRACE SEMI
+    (66) letlist -> . ID EQUALS STR SEMI
+    (67) letlist -> . ID EQUALS NUMBER SEMI
+    (68) letlist -> . letlist ID EQUALS STR SEMI
+    (69) letlist -> . letlist ID EQUALS NUMBER SEMI
+
+    ID              shift and go to state 135
+
+    letlist                        shift and go to state 162
+
+state 132
+
+    (18) classf -> ID KAKKO paramlist KOKKA yaji . TYPE LBRACE bunlist RBRACE
+
+    TYPE            shift and go to state 163
+
+
+state 133
+
+    (11) teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist . RBRACE
+    (22) bunlist -> bunlist . bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    RBRACE          shift and go to state 164
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bun                            shift and go to state 91
+
+state 134
+
+    (64) bun -> TYPE TYPE LBRACE letlist . RBRACE SEMI
+    (68) letlist -> letlist . ID EQUALS STR SEMI
+    (69) letlist -> letlist . ID EQUALS NUMBER SEMI
+
+    RBRACE          shift and go to state 165
+    ID              shift and go to state 166
+
+
+state 135
+
+    (66) letlist -> ID . EQUALS STR SEMI
+    (67) letlist -> ID . EQUALS NUMBER SEMI
+
+    EQUALS          shift and go to state 167
+
+
+state 136
+
+    (25) bun -> TYPE ID EQUALS ID . LISL shiki LISR SEMI
+    (44) shiki -> ID .
+    (62) shiki -> ID . KAKKO shiki KOKKA
+    (63) shiki -> ID . KAKKO KOKKA
+
+    LISL            shift and go to state 168
+    SEMI            reduce using rule 44 (shiki -> ID .)
+    OPTASU          reduce using rule 44 (shiki -> ID .)
+    OPKAKERU        reduce using rule 44 (shiki -> ID .)
+    OPMIN           reduce using rule 44 (shiki -> ID .)
+    OPWARU          reduce using rule 44 (shiki -> ID .)
+    CONMA           reduce using rule 44 (shiki -> ID .)
+    KAKKO           shift and go to state 44
+
+
+state 137
+
+    (23) bun -> TYPE ID EQUALS shiki . SEMI
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    SEMI            shift and go to state 169
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 138
+
+    (24) bun -> TYPE ID EQUALS LISL . STR LISR SEMI
+
+    STR             shift and go to state 170
+
+
+state 139
+
+    (10) bun -> ID EQUALS ID SEMI .
+
+    RBRACE          reduce using rule 10 (bun -> ID EQUALS ID SEMI .)
+    ID              reduce using rule 10 (bun -> ID EQUALS ID SEMI .)
+    PASS            reduce using rule 10 (bun -> ID EQUALS ID SEMI .)
+    TYPE            reduce using rule 10 (bun -> ID EQUALS ID SEMI .)
+    RETURN          reduce using rule 10 (bun -> ID EQUALS ID SEMI .)
+    IF              reduce using rule 10 (bun -> ID EQUALS ID SEMI .)
+    WHILE           reduce using rule 10 (bun -> ID EQUALS ID SEMI .)
+    RESERV          reduce using rule 10 (bun -> ID EQUALS ID SEMI .)
+    GLOBAL          reduce using rule 10 (bun -> ID EQUALS ID SEMI .)
+    STR             reduce using rule 10 (bun -> ID EQUALS ID SEMI .)
+
+
+state 140
+
+    (27) bun -> ID EQUALS ID OPTASU . NUMBER SEMI
+    (70) bun -> ID EQUALS ID OPTASU . STR SEMI
+
+    NUMBER          shift and go to state 171
+    STR             shift and go to state 172
+
+
+state 141
+
+    (28) bun -> ID EQUALS ID OPKAKERU . NUMBER SEMI
+
+    NUMBER          shift and go to state 173
+
+
+state 142
+
+    (29) bun -> ID EQUALS ID OPMIN . NUMBER SEMI
+
+    NUMBER          shift and go to state 174
+
+
+state 143
+
+    (30) bun -> ID EQUALS ID OPWARU . NUMBER SEMI
+
+    NUMBER          shift and go to state 175
+
+
+state 144
+
+    (7) bun -> ID EQUALS LAMDA KAKKO . paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (3) paramlist -> . param
+    (4) paramlist -> . paramlist CONMA param
+    (5) param -> . TYPE ID
+    (6) param -> . TYPE
+
+    TYPE            shift and go to state 26
+
+    paramlist                      shift and go to state 176
+    param                          shift and go to state 28
+
+state 145
+
+    (26) bun -> ID EQUALS LISL LISR . SEMI
+
+    SEMI            shift and go to state 177
+
+
+state 146
+
+    (71) bun -> ID EQUALS STR OPTASU . ID SEMI
+
+    ID              shift and go to state 178
+
+
+state 147
+
+    (8) bun -> ID KAKKO shiki KOKKA . SEMI
+
+    SEMI            shift and go to state 179
+
+
+state 148
+
+    (19) bun -> ID PIRIOD ID KAKKO . shiki KOKKA SEMI
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 180
+
+state 149
+
+    (72) bun -> ID OPTASU OPTASU SEMI .
+
+    RBRACE          reduce using rule 72 (bun -> ID OPTASU OPTASU SEMI .)
+    ID              reduce using rule 72 (bun -> ID OPTASU OPTASU SEMI .)
+    PASS            reduce using rule 72 (bun -> ID OPTASU OPTASU SEMI .)
+    TYPE            reduce using rule 72 (bun -> ID OPTASU OPTASU SEMI .)
+    RETURN          reduce using rule 72 (bun -> ID OPTASU OPTASU SEMI .)
+    IF              reduce using rule 72 (bun -> ID OPTASU OPTASU SEMI .)
+    WHILE           reduce using rule 72 (bun -> ID OPTASU OPTASU SEMI .)
+    RESERV          reduce using rule 72 (bun -> ID OPTASU OPTASU SEMI .)
+    GLOBAL          reduce using rule 72 (bun -> ID OPTASU OPTASU SEMI .)
+    STR             reduce using rule 72 (bun -> ID OPTASU OPTASU SEMI .)
+
+
+state 150
+
+    (49) bun -> PASS KAKKO PASS KOKKA . SEMI
+
+    SEMI            shift and go to state 181
+
+
+state 151
+
+    (73) bun -> STR OPTASU OPTASU SEMI .
+
+    RBRACE          reduce using rule 73 (bun -> STR OPTASU OPTASU SEMI .)
+    ID              reduce using rule 73 (bun -> STR OPTASU OPTASU SEMI .)
+    PASS            reduce using rule 73 (bun -> STR OPTASU OPTASU SEMI .)
+    TYPE            reduce using rule 73 (bun -> STR OPTASU OPTASU SEMI .)
+    RETURN          reduce using rule 73 (bun -> STR OPTASU OPTASU SEMI .)
+    IF              reduce using rule 73 (bun -> STR OPTASU OPTASU SEMI .)
+    WHILE           reduce using rule 73 (bun -> STR OPTASU OPTASU SEMI .)
+    RESERV          reduce using rule 73 (bun -> STR OPTASU OPTASU SEMI .)
+    GLOBAL          reduce using rule 73 (bun -> STR OPTASU OPTASU SEMI .)
+    STR             reduce using rule 73 (bun -> STR OPTASU OPTASU SEMI .)
+
+
+state 152
+
+    (33) shiki -> RESERV KAKKO shiki . KOKKA
+    (61) bun -> RESERV KAKKO shiki . KOKKA SEMI
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    KOKKA           shift and go to state 182
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 153
+
+    (62) shiki -> ID KAKKO shiki . KOKKA
+    (8) bun -> ID KAKKO shiki . KOKKA SEMI
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    KOKKA           shift and go to state 183
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 154
+
+    (36) bun -> IF hikaku LBRACE bunlist . RBRACE
+    (37) bun -> IF hikaku LBRACE bunlist . RBRACE ELSE LBRACE bunlist RBRACE
+    (22) bunlist -> bunlist . bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    RBRACE          shift and go to state 184
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bun                            shift and go to state 91
+
+state 155
+
+    (40) hikaku -> hikaku EQOP shiki .
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    LBRACE          reduce using rule 40 (hikaku -> hikaku EQOP shiki .)
+    EQOP            reduce using rule 40 (hikaku -> hikaku EQOP shiki .)
+    dainari         reduce using rule 40 (hikaku -> hikaku EQOP shiki .)
+    syounari        reduce using rule 40 (hikaku -> hikaku EQOP shiki .)
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 156
+
+    (41) hikaku -> hikaku dainari shiki .
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    LBRACE          reduce using rule 41 (hikaku -> hikaku dainari shiki .)
+    EQOP            reduce using rule 41 (hikaku -> hikaku dainari shiki .)
+    dainari         reduce using rule 41 (hikaku -> hikaku dainari shiki .)
+    syounari        reduce using rule 41 (hikaku -> hikaku dainari shiki .)
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 157
+
+    (42) hikaku -> hikaku syounari shiki .
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    LBRACE          reduce using rule 42 (hikaku -> hikaku syounari shiki .)
+    EQOP            reduce using rule 42 (hikaku -> hikaku syounari shiki .)
+    dainari         reduce using rule 42 (hikaku -> hikaku syounari shiki .)
+    syounari        reduce using rule 42 (hikaku -> hikaku syounari shiki .)
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 158
+
+    (38) bun -> WHILE shiki LBRACE bunlist . RBRACE
+    (22) bunlist -> bunlist . bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    RBRACE          shift and go to state 185
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bun                            shift and go to state 91
+
+state 159
+
+    (58) bun -> RESERV ID LISL ID . LISR EQUALS STR SEMI
+    (60) bun -> RESERV ID LISL ID . LISR EQUALS ID SEMI
+
+    LISR            shift and go to state 186
+
+
+state 160
+
+    (57) bun -> RESERV ID LISL NUMBER . LISR EQUALS STR SEMI
+    (59) bun -> RESERV ID LISL NUMBER . LISR EQUALS ID SEMI
+
+    LISR            shift and go to state 187
+
+
+state 161
+
+    (61) bun -> RESERV KAKKO shiki KOKKA . SEMI
+
+    SEMI            shift and go to state 188
+
+
+state 162
+
+    (65) bun -> GLOBAL TYPE LBRACE letlist . RBRACE SEMI
+    (68) letlist -> letlist . ID EQUALS STR SEMI
+    (69) letlist -> letlist . ID EQUALS NUMBER SEMI
+
+    RBRACE          shift and go to state 189
+    ID              shift and go to state 166
+
+
+state 163
+
+    (18) classf -> ID KAKKO paramlist KOKKA yaji TYPE . LBRACE bunlist RBRACE
+
+    LBRACE          shift and go to state 190
+
+
+state 164
+
+    (11) teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .
+
+    STR             reduce using rule 11 (teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .)
+    TYPE            reduce using rule 11 (teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .)
+    STRUCT          reduce using rule 11 (teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .)
+    CLASS           reduce using rule 11 (teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .)
+    INCLUDE         reduce using rule 11 (teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .)
+    $end            reduce using rule 11 (teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .)
+    RBRACE          reduce using rule 11 (teigi -> TYPE ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .)
+
+
+state 165
+
+    (64) bun -> TYPE TYPE LBRACE letlist RBRACE . SEMI
+
+    SEMI            shift and go to state 191
+
+
+state 166
+
+    (68) letlist -> letlist ID . EQUALS STR SEMI
+    (69) letlist -> letlist ID . EQUALS NUMBER SEMI
+
+    EQUALS          shift and go to state 192
+
+
+state 167
+
+    (66) letlist -> ID EQUALS . STR SEMI
+    (67) letlist -> ID EQUALS . NUMBER SEMI
+
+    STR             shift and go to state 193
+    NUMBER          shift and go to state 194
+
+
+state 168
+
+    (25) bun -> TYPE ID EQUALS ID LISL . shiki LISR SEMI
+    (31) shiki -> . TYPEF KAKKO shiki KOKKA
+    (32) shiki -> . TYPE KAKKO shiki KOKKA
+    (33) shiki -> . RESERV KAKKO shiki KOKKA
+    (43) shiki -> . NUMBER
+    (44) shiki -> . ID
+    (45) shiki -> . TYPE
+    (46) shiki -> . STR
+    (50) shiki -> . OPMIN NUMBER
+    (51) shiki -> . shiki OPTASU shiki
+    (52) shiki -> . shiki OPKAKERU shiki
+    (53) shiki -> . shiki OPMIN shiki
+    (54) shiki -> . shiki OPWARU shiki
+    (55) shiki -> . KAKKO shiki KOKKA
+    (56) shiki -> . shiki CONMA ID
+    (62) shiki -> . ID KAKKO shiki KOKKA
+    (63) shiki -> . ID KAKKO KOKKA
+
+    TYPEF           shift and go to state 18
+    TYPE            shift and go to state 20
+    RESERV          shift and go to state 21
+    NUMBER          shift and go to state 22
+    ID              shift and go to state 23
+    STR             shift and go to state 24
+    OPMIN           shift and go to state 25
+    KAKKO           shift and go to state 19
+
+    shiki                          shift and go to state 195
+
+state 169
+
+    (23) bun -> TYPE ID EQUALS shiki SEMI .
+
+    RBRACE          reduce using rule 23 (bun -> TYPE ID EQUALS shiki SEMI .)
+    ID              reduce using rule 23 (bun -> TYPE ID EQUALS shiki SEMI .)
+    PASS            reduce using rule 23 (bun -> TYPE ID EQUALS shiki SEMI .)
+    TYPE            reduce using rule 23 (bun -> TYPE ID EQUALS shiki SEMI .)
+    RETURN          reduce using rule 23 (bun -> TYPE ID EQUALS shiki SEMI .)
+    IF              reduce using rule 23 (bun -> TYPE ID EQUALS shiki SEMI .)
+    WHILE           reduce using rule 23 (bun -> TYPE ID EQUALS shiki SEMI .)
+    RESERV          reduce using rule 23 (bun -> TYPE ID EQUALS shiki SEMI .)
+    GLOBAL          reduce using rule 23 (bun -> TYPE ID EQUALS shiki SEMI .)
+    STR             reduce using rule 23 (bun -> TYPE ID EQUALS shiki SEMI .)
+
+
+state 170
+
+    (24) bun -> TYPE ID EQUALS LISL STR . LISR SEMI
+
+    LISR            shift and go to state 196
+
+
+state 171
+
+    (27) bun -> ID EQUALS ID OPTASU NUMBER . SEMI
+
+    SEMI            shift and go to state 197
+
+
+state 172
+
+    (70) bun -> ID EQUALS ID OPTASU STR . SEMI
+
+    SEMI            shift and go to state 198
+
+
+state 173
+
+    (28) bun -> ID EQUALS ID OPKAKERU NUMBER . SEMI
+
+    SEMI            shift and go to state 199
+
+
+state 174
+
+    (29) bun -> ID EQUALS ID OPMIN NUMBER . SEMI
+
+    SEMI            shift and go to state 200
+
+
+state 175
+
+    (30) bun -> ID EQUALS ID OPWARU NUMBER . SEMI
+
+    SEMI            shift and go to state 201
+
+
+state 176
+
+    (7) bun -> ID EQUALS LAMDA KAKKO paramlist . KOKKA LBRACE bunlist RBRACE SEMI
+    (4) paramlist -> paramlist . CONMA param
+
+    KOKKA           shift and go to state 202
+    CONMA           shift and go to state 48
+
+
+state 177
+
+    (26) bun -> ID EQUALS LISL LISR SEMI .
+
+    RBRACE          reduce using rule 26 (bun -> ID EQUALS LISL LISR SEMI .)
+    ID              reduce using rule 26 (bun -> ID EQUALS LISL LISR SEMI .)
+    PASS            reduce using rule 26 (bun -> ID EQUALS LISL LISR SEMI .)
+    TYPE            reduce using rule 26 (bun -> ID EQUALS LISL LISR SEMI .)
+    RETURN          reduce using rule 26 (bun -> ID EQUALS LISL LISR SEMI .)
+    IF              reduce using rule 26 (bun -> ID EQUALS LISL LISR SEMI .)
+    WHILE           reduce using rule 26 (bun -> ID EQUALS LISL LISR SEMI .)
+    RESERV          reduce using rule 26 (bun -> ID EQUALS LISL LISR SEMI .)
+    GLOBAL          reduce using rule 26 (bun -> ID EQUALS LISL LISR SEMI .)
+    STR             reduce using rule 26 (bun -> ID EQUALS LISL LISR SEMI .)
+
+
+state 178
+
+    (71) bun -> ID EQUALS STR OPTASU ID . SEMI
+
+    SEMI            shift and go to state 203
+
+
+state 179
+
+    (8) bun -> ID KAKKO shiki KOKKA SEMI .
+
+    RBRACE          reduce using rule 8 (bun -> ID KAKKO shiki KOKKA SEMI .)
+    ID              reduce using rule 8 (bun -> ID KAKKO shiki KOKKA SEMI .)
+    PASS            reduce using rule 8 (bun -> ID KAKKO shiki KOKKA SEMI .)
+    TYPE            reduce using rule 8 (bun -> ID KAKKO shiki KOKKA SEMI .)
+    RETURN          reduce using rule 8 (bun -> ID KAKKO shiki KOKKA SEMI .)
+    IF              reduce using rule 8 (bun -> ID KAKKO shiki KOKKA SEMI .)
+    WHILE           reduce using rule 8 (bun -> ID KAKKO shiki KOKKA SEMI .)
+    RESERV          reduce using rule 8 (bun -> ID KAKKO shiki KOKKA SEMI .)
+    GLOBAL          reduce using rule 8 (bun -> ID KAKKO shiki KOKKA SEMI .)
+    STR             reduce using rule 8 (bun -> ID KAKKO shiki KOKKA SEMI .)
+
+
+state 180
+
+    (19) bun -> ID PIRIOD ID KAKKO shiki . KOKKA SEMI
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    KOKKA           shift and go to state 204
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 181
+
+    (49) bun -> PASS KAKKO PASS KOKKA SEMI .
+
+    RBRACE          reduce using rule 49 (bun -> PASS KAKKO PASS KOKKA SEMI .)
+    ID              reduce using rule 49 (bun -> PASS KAKKO PASS KOKKA SEMI .)
+    PASS            reduce using rule 49 (bun -> PASS KAKKO PASS KOKKA SEMI .)
+    TYPE            reduce using rule 49 (bun -> PASS KAKKO PASS KOKKA SEMI .)
+    RETURN          reduce using rule 49 (bun -> PASS KAKKO PASS KOKKA SEMI .)
+    IF              reduce using rule 49 (bun -> PASS KAKKO PASS KOKKA SEMI .)
+    WHILE           reduce using rule 49 (bun -> PASS KAKKO PASS KOKKA SEMI .)
+    RESERV          reduce using rule 49 (bun -> PASS KAKKO PASS KOKKA SEMI .)
+    GLOBAL          reduce using rule 49 (bun -> PASS KAKKO PASS KOKKA SEMI .)
+    STR             reduce using rule 49 (bun -> PASS KAKKO PASS KOKKA SEMI .)
+
+
+state 182
+
+    (33) shiki -> RESERV KAKKO shiki KOKKA .
+    (61) bun -> RESERV KAKKO shiki KOKKA . SEMI
+
+  ! shift/reduce conflict for SEMI resolved as shift
+    OPTASU          reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    OPKAKERU        reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    OPMIN           reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    OPWARU          reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    CONMA           reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .)
+    SEMI            shift and go to state 188
+
+  ! SEMI            [ reduce using rule 33 (shiki -> RESERV KAKKO shiki KOKKA .) ]
+
+
+state 183
+
+    (62) shiki -> ID KAKKO shiki KOKKA .
+    (8) bun -> ID KAKKO shiki KOKKA . SEMI
+
+  ! shift/reduce conflict for SEMI resolved as shift
+    OPTASU          reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    OPKAKERU        reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    OPMIN           reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    OPWARU          reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    CONMA           reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .)
+    SEMI            shift and go to state 179
+
+  ! SEMI            [ reduce using rule 62 (shiki -> ID KAKKO shiki KOKKA .) ]
+
+
+state 184
+
+    (36) bun -> IF hikaku LBRACE bunlist RBRACE .
+    (37) bun -> IF hikaku LBRACE bunlist RBRACE . ELSE LBRACE bunlist RBRACE
+
+    RBRACE          reduce using rule 36 (bun -> IF hikaku LBRACE bunlist RBRACE .)
+    ID              reduce using rule 36 (bun -> IF hikaku LBRACE bunlist RBRACE .)
+    PASS            reduce using rule 36 (bun -> IF hikaku LBRACE bunlist RBRACE .)
+    TYPE            reduce using rule 36 (bun -> IF hikaku LBRACE bunlist RBRACE .)
+    RETURN          reduce using rule 36 (bun -> IF hikaku LBRACE bunlist RBRACE .)
+    IF              reduce using rule 36 (bun -> IF hikaku LBRACE bunlist RBRACE .)
+    WHILE           reduce using rule 36 (bun -> IF hikaku LBRACE bunlist RBRACE .)
+    RESERV          reduce using rule 36 (bun -> IF hikaku LBRACE bunlist RBRACE .)
+    GLOBAL          reduce using rule 36 (bun -> IF hikaku LBRACE bunlist RBRACE .)
+    STR             reduce using rule 36 (bun -> IF hikaku LBRACE bunlist RBRACE .)
+    ELSE            shift and go to state 205
+
+
+state 185
+
+    (38) bun -> WHILE shiki LBRACE bunlist RBRACE .
+
+    RBRACE          reduce using rule 38 (bun -> WHILE shiki LBRACE bunlist RBRACE .)
+    ID              reduce using rule 38 (bun -> WHILE shiki LBRACE bunlist RBRACE .)
+    PASS            reduce using rule 38 (bun -> WHILE shiki LBRACE bunlist RBRACE .)
+    TYPE            reduce using rule 38 (bun -> WHILE shiki LBRACE bunlist RBRACE .)
+    RETURN          reduce using rule 38 (bun -> WHILE shiki LBRACE bunlist RBRACE .)
+    IF              reduce using rule 38 (bun -> WHILE shiki LBRACE bunlist RBRACE .)
+    WHILE           reduce using rule 38 (bun -> WHILE shiki LBRACE bunlist RBRACE .)
+    RESERV          reduce using rule 38 (bun -> WHILE shiki LBRACE bunlist RBRACE .)
+    GLOBAL          reduce using rule 38 (bun -> WHILE shiki LBRACE bunlist RBRACE .)
+    STR             reduce using rule 38 (bun -> WHILE shiki LBRACE bunlist RBRACE .)
+
+
+state 186
+
+    (58) bun -> RESERV ID LISL ID LISR . EQUALS STR SEMI
+    (60) bun -> RESERV ID LISL ID LISR . EQUALS ID SEMI
+
+    EQUALS          shift and go to state 206
+
+
+state 187
+
+    (57) bun -> RESERV ID LISL NUMBER LISR . EQUALS STR SEMI
+    (59) bun -> RESERV ID LISL NUMBER LISR . EQUALS ID SEMI
+
+    EQUALS          shift and go to state 207
+
+
+state 188
+
+    (61) bun -> RESERV KAKKO shiki KOKKA SEMI .
+
+    RBRACE          reduce using rule 61 (bun -> RESERV KAKKO shiki KOKKA SEMI .)
+    ID              reduce using rule 61 (bun -> RESERV KAKKO shiki KOKKA SEMI .)
+    PASS            reduce using rule 61 (bun -> RESERV KAKKO shiki KOKKA SEMI .)
+    TYPE            reduce using rule 61 (bun -> RESERV KAKKO shiki KOKKA SEMI .)
+    RETURN          reduce using rule 61 (bun -> RESERV KAKKO shiki KOKKA SEMI .)
+    IF              reduce using rule 61 (bun -> RESERV KAKKO shiki KOKKA SEMI .)
+    WHILE           reduce using rule 61 (bun -> RESERV KAKKO shiki KOKKA SEMI .)
+    RESERV          reduce using rule 61 (bun -> RESERV KAKKO shiki KOKKA SEMI .)
+    GLOBAL          reduce using rule 61 (bun -> RESERV KAKKO shiki KOKKA SEMI .)
+    STR             reduce using rule 61 (bun -> RESERV KAKKO shiki KOKKA SEMI .)
+
+
+state 189
+
+    (65) bun -> GLOBAL TYPE LBRACE letlist RBRACE . SEMI
+
+    SEMI            shift and go to state 208
+
+
+state 190
+
+    (18) classf -> ID KAKKO paramlist KOKKA yaji TYPE LBRACE . bunlist RBRACE
+    (21) bunlist -> . bun
+    (22) bunlist -> . bunlist bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bunlist                        shift and go to state 209
+    bun                            shift and go to state 70
+
+state 191
+
+    (64) bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .
+
+    RBRACE          reduce using rule 64 (bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .)
+    ID              reduce using rule 64 (bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .)
+    PASS            reduce using rule 64 (bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .)
+    TYPE            reduce using rule 64 (bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .)
+    RETURN          reduce using rule 64 (bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .)
+    IF              reduce using rule 64 (bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .)
+    WHILE           reduce using rule 64 (bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .)
+    RESERV          reduce using rule 64 (bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .)
+    GLOBAL          reduce using rule 64 (bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .)
+    STR             reduce using rule 64 (bun -> TYPE TYPE LBRACE letlist RBRACE SEMI .)
+
+
+state 192
+
+    (68) letlist -> letlist ID EQUALS . STR SEMI
+    (69) letlist -> letlist ID EQUALS . NUMBER SEMI
+
+    STR             shift and go to state 210
+    NUMBER          shift and go to state 211
+
+
+state 193
+
+    (66) letlist -> ID EQUALS STR . SEMI
+
+    SEMI            shift and go to state 212
+
+
+state 194
+
+    (67) letlist -> ID EQUALS NUMBER . SEMI
+
+    SEMI            shift and go to state 213
+
+
+state 195
+
+    (25) bun -> TYPE ID EQUALS ID LISL shiki . LISR SEMI
+    (51) shiki -> shiki . OPTASU shiki
+    (52) shiki -> shiki . OPKAKERU shiki
+    (53) shiki -> shiki . OPMIN shiki
+    (54) shiki -> shiki . OPWARU shiki
+    (56) shiki -> shiki . CONMA ID
+
+    LISR            shift and go to state 214
+    OPTASU          shift and go to state 35
+    OPKAKERU        shift and go to state 36
+    OPMIN           shift and go to state 37
+    OPWARU          shift and go to state 38
+    CONMA           shift and go to state 39
+
+
+state 196
+
+    (24) bun -> TYPE ID EQUALS LISL STR LISR . SEMI
+
+    SEMI            shift and go to state 215
+
+
+state 197
+
+    (27) bun -> ID EQUALS ID OPTASU NUMBER SEMI .
+
+    RBRACE          reduce using rule 27 (bun -> ID EQUALS ID OPTASU NUMBER SEMI .)
+    ID              reduce using rule 27 (bun -> ID EQUALS ID OPTASU NUMBER SEMI .)
+    PASS            reduce using rule 27 (bun -> ID EQUALS ID OPTASU NUMBER SEMI .)
+    TYPE            reduce using rule 27 (bun -> ID EQUALS ID OPTASU NUMBER SEMI .)
+    RETURN          reduce using rule 27 (bun -> ID EQUALS ID OPTASU NUMBER SEMI .)
+    IF              reduce using rule 27 (bun -> ID EQUALS ID OPTASU NUMBER SEMI .)
+    WHILE           reduce using rule 27 (bun -> ID EQUALS ID OPTASU NUMBER SEMI .)
+    RESERV          reduce using rule 27 (bun -> ID EQUALS ID OPTASU NUMBER SEMI .)
+    GLOBAL          reduce using rule 27 (bun -> ID EQUALS ID OPTASU NUMBER SEMI .)
+    STR             reduce using rule 27 (bun -> ID EQUALS ID OPTASU NUMBER SEMI .)
+
+
+state 198
+
+    (70) bun -> ID EQUALS ID OPTASU STR SEMI .
+
+    RBRACE          reduce using rule 70 (bun -> ID EQUALS ID OPTASU STR SEMI .)
+    ID              reduce using rule 70 (bun -> ID EQUALS ID OPTASU STR SEMI .)
+    PASS            reduce using rule 70 (bun -> ID EQUALS ID OPTASU STR SEMI .)
+    TYPE            reduce using rule 70 (bun -> ID EQUALS ID OPTASU STR SEMI .)
+    RETURN          reduce using rule 70 (bun -> ID EQUALS ID OPTASU STR SEMI .)
+    IF              reduce using rule 70 (bun -> ID EQUALS ID OPTASU STR SEMI .)
+    WHILE           reduce using rule 70 (bun -> ID EQUALS ID OPTASU STR SEMI .)
+    RESERV          reduce using rule 70 (bun -> ID EQUALS ID OPTASU STR SEMI .)
+    GLOBAL          reduce using rule 70 (bun -> ID EQUALS ID OPTASU STR SEMI .)
+    STR             reduce using rule 70 (bun -> ID EQUALS ID OPTASU STR SEMI .)
+
+
+state 199
+
+    (28) bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .
+
+    RBRACE          reduce using rule 28 (bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .)
+    ID              reduce using rule 28 (bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .)
+    PASS            reduce using rule 28 (bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .)
+    TYPE            reduce using rule 28 (bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .)
+    RETURN          reduce using rule 28 (bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .)
+    IF              reduce using rule 28 (bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .)
+    WHILE           reduce using rule 28 (bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .)
+    RESERV          reduce using rule 28 (bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .)
+    GLOBAL          reduce using rule 28 (bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .)
+    STR             reduce using rule 28 (bun -> ID EQUALS ID OPKAKERU NUMBER SEMI .)
+
+
+state 200
+
+    (29) bun -> ID EQUALS ID OPMIN NUMBER SEMI .
+
+    RBRACE          reduce using rule 29 (bun -> ID EQUALS ID OPMIN NUMBER SEMI .)
+    ID              reduce using rule 29 (bun -> ID EQUALS ID OPMIN NUMBER SEMI .)
+    PASS            reduce using rule 29 (bun -> ID EQUALS ID OPMIN NUMBER SEMI .)
+    TYPE            reduce using rule 29 (bun -> ID EQUALS ID OPMIN NUMBER SEMI .)
+    RETURN          reduce using rule 29 (bun -> ID EQUALS ID OPMIN NUMBER SEMI .)
+    IF              reduce using rule 29 (bun -> ID EQUALS ID OPMIN NUMBER SEMI .)
+    WHILE           reduce using rule 29 (bun -> ID EQUALS ID OPMIN NUMBER SEMI .)
+    RESERV          reduce using rule 29 (bun -> ID EQUALS ID OPMIN NUMBER SEMI .)
+    GLOBAL          reduce using rule 29 (bun -> ID EQUALS ID OPMIN NUMBER SEMI .)
+    STR             reduce using rule 29 (bun -> ID EQUALS ID OPMIN NUMBER SEMI .)
+
+
+state 201
+
+    (30) bun -> ID EQUALS ID OPWARU NUMBER SEMI .
+
+    RBRACE          reduce using rule 30 (bun -> ID EQUALS ID OPWARU NUMBER SEMI .)
+    ID              reduce using rule 30 (bun -> ID EQUALS ID OPWARU NUMBER SEMI .)
+    PASS            reduce using rule 30 (bun -> ID EQUALS ID OPWARU NUMBER SEMI .)
+    TYPE            reduce using rule 30 (bun -> ID EQUALS ID OPWARU NUMBER SEMI .)
+    RETURN          reduce using rule 30 (bun -> ID EQUALS ID OPWARU NUMBER SEMI .)
+    IF              reduce using rule 30 (bun -> ID EQUALS ID OPWARU NUMBER SEMI .)
+    WHILE           reduce using rule 30 (bun -> ID EQUALS ID OPWARU NUMBER SEMI .)
+    RESERV          reduce using rule 30 (bun -> ID EQUALS ID OPWARU NUMBER SEMI .)
+    GLOBAL          reduce using rule 30 (bun -> ID EQUALS ID OPWARU NUMBER SEMI .)
+    STR             reduce using rule 30 (bun -> ID EQUALS ID OPWARU NUMBER SEMI .)
+
+
+state 202
+
+    (7) bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA . LBRACE bunlist RBRACE SEMI
+
+    LBRACE          shift and go to state 216
+
+
+state 203
+
+    (71) bun -> ID EQUALS STR OPTASU ID SEMI .
+
+    RBRACE          reduce using rule 71 (bun -> ID EQUALS STR OPTASU ID SEMI .)
+    ID              reduce using rule 71 (bun -> ID EQUALS STR OPTASU ID SEMI .)
+    PASS            reduce using rule 71 (bun -> ID EQUALS STR OPTASU ID SEMI .)
+    TYPE            reduce using rule 71 (bun -> ID EQUALS STR OPTASU ID SEMI .)
+    RETURN          reduce using rule 71 (bun -> ID EQUALS STR OPTASU ID SEMI .)
+    IF              reduce using rule 71 (bun -> ID EQUALS STR OPTASU ID SEMI .)
+    WHILE           reduce using rule 71 (bun -> ID EQUALS STR OPTASU ID SEMI .)
+    RESERV          reduce using rule 71 (bun -> ID EQUALS STR OPTASU ID SEMI .)
+    GLOBAL          reduce using rule 71 (bun -> ID EQUALS STR OPTASU ID SEMI .)
+    STR             reduce using rule 71 (bun -> ID EQUALS STR OPTASU ID SEMI .)
+
+
+state 204
+
+    (19) bun -> ID PIRIOD ID KAKKO shiki KOKKA . SEMI
+
+    SEMI            shift and go to state 217
+
+
+state 205
+
+    (37) bun -> IF hikaku LBRACE bunlist RBRACE ELSE . LBRACE bunlist RBRACE
+
+    LBRACE          shift and go to state 218
+
+
+state 206
+
+    (58) bun -> RESERV ID LISL ID LISR EQUALS . STR SEMI
+    (60) bun -> RESERV ID LISL ID LISR EQUALS . ID SEMI
+
+    STR             shift and go to state 220
+    ID              shift and go to state 219
+
+
+state 207
+
+    (57) bun -> RESERV ID LISL NUMBER LISR EQUALS . STR SEMI
+    (59) bun -> RESERV ID LISL NUMBER LISR EQUALS . ID SEMI
+
+    STR             shift and go to state 222
+    ID              shift and go to state 221
+
+
+state 208
+
+    (65) bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .
+
+    RBRACE          reduce using rule 65 (bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .)
+    ID              reduce using rule 65 (bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .)
+    PASS            reduce using rule 65 (bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .)
+    TYPE            reduce using rule 65 (bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .)
+    RETURN          reduce using rule 65 (bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .)
+    IF              reduce using rule 65 (bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .)
+    WHILE           reduce using rule 65 (bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .)
+    RESERV          reduce using rule 65 (bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .)
+    GLOBAL          reduce using rule 65 (bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .)
+    STR             reduce using rule 65 (bun -> GLOBAL TYPE LBRACE letlist RBRACE SEMI .)
+
+
+state 209
+
+    (18) classf -> ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist . RBRACE
+    (22) bunlist -> bunlist . bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    RBRACE          shift and go to state 223
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bun                            shift and go to state 91
+
+state 210
+
+    (68) letlist -> letlist ID EQUALS STR . SEMI
+
+    SEMI            shift and go to state 224
+
+
+state 211
+
+    (69) letlist -> letlist ID EQUALS NUMBER . SEMI
+
+    SEMI            shift and go to state 225
+
+
+state 212
+
+    (66) letlist -> ID EQUALS STR SEMI .
+
+    RBRACE          reduce using rule 66 (letlist -> ID EQUALS STR SEMI .)
+    ID              reduce using rule 66 (letlist -> ID EQUALS STR SEMI .)
+
+
+state 213
+
+    (67) letlist -> ID EQUALS NUMBER SEMI .
+
+    RBRACE          reduce using rule 67 (letlist -> ID EQUALS NUMBER SEMI .)
+    ID              reduce using rule 67 (letlist -> ID EQUALS NUMBER SEMI .)
+
+
+state 214
+
+    (25) bun -> TYPE ID EQUALS ID LISL shiki LISR . SEMI
+
+    SEMI            shift and go to state 226
+
+
+state 215
+
+    (24) bun -> TYPE ID EQUALS LISL STR LISR SEMI .
+
+    RBRACE          reduce using rule 24 (bun -> TYPE ID EQUALS LISL STR LISR SEMI .)
+    ID              reduce using rule 24 (bun -> TYPE ID EQUALS LISL STR LISR SEMI .)
+    PASS            reduce using rule 24 (bun -> TYPE ID EQUALS LISL STR LISR SEMI .)
+    TYPE            reduce using rule 24 (bun -> TYPE ID EQUALS LISL STR LISR SEMI .)
+    RETURN          reduce using rule 24 (bun -> TYPE ID EQUALS LISL STR LISR SEMI .)
+    IF              reduce using rule 24 (bun -> TYPE ID EQUALS LISL STR LISR SEMI .)
+    WHILE           reduce using rule 24 (bun -> TYPE ID EQUALS LISL STR LISR SEMI .)
+    RESERV          reduce using rule 24 (bun -> TYPE ID EQUALS LISL STR LISR SEMI .)
+    GLOBAL          reduce using rule 24 (bun -> TYPE ID EQUALS LISL STR LISR SEMI .)
+    STR             reduce using rule 24 (bun -> TYPE ID EQUALS LISL STR LISR SEMI .)
+
+
+state 216
+
+    (7) bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE . bunlist RBRACE SEMI
+    (21) bunlist -> . bun
+    (22) bunlist -> . bunlist bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bunlist                        shift and go to state 227
+    bun                            shift and go to state 70
+
+state 217
+
+    (19) bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .
+
+    RBRACE          reduce using rule 19 (bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .)
+    ID              reduce using rule 19 (bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .)
+    PASS            reduce using rule 19 (bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .)
+    TYPE            reduce using rule 19 (bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .)
+    RETURN          reduce using rule 19 (bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .)
+    IF              reduce using rule 19 (bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .)
+    WHILE           reduce using rule 19 (bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .)
+    RESERV          reduce using rule 19 (bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .)
+    GLOBAL          reduce using rule 19 (bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .)
+    STR             reduce using rule 19 (bun -> ID PIRIOD ID KAKKO shiki KOKKA SEMI .)
+
+
+state 218
+
+    (37) bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE . bunlist RBRACE
+    (21) bunlist -> . bun
+    (22) bunlist -> . bunlist bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bunlist                        shift and go to state 228
+    bun                            shift and go to state 70
+
+state 219
+
+    (60) bun -> RESERV ID LISL ID LISR EQUALS ID . SEMI
+
+    SEMI            shift and go to state 229
+
+
+state 220
+
+    (58) bun -> RESERV ID LISL ID LISR EQUALS STR . SEMI
+
+    SEMI            shift and go to state 230
+
+
+state 221
+
+    (59) bun -> RESERV ID LISL NUMBER LISR EQUALS ID . SEMI
+
+    SEMI            shift and go to state 231
+
+
+state 222
+
+    (57) bun -> RESERV ID LISL NUMBER LISR EQUALS STR . SEMI
+
+    SEMI            shift and go to state 232
+
+
+state 223
+
+    (18) classf -> ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .
+
+    RBRACE          reduce using rule 18 (classf -> ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .)
+    ID              reduce using rule 18 (classf -> ID KAKKO paramlist KOKKA yaji TYPE LBRACE bunlist RBRACE .)
+
+
+state 224
+
+    (68) letlist -> letlist ID EQUALS STR SEMI .
+
+    RBRACE          reduce using rule 68 (letlist -> letlist ID EQUALS STR SEMI .)
+    ID              reduce using rule 68 (letlist -> letlist ID EQUALS STR SEMI .)
+
+
+state 225
+
+    (69) letlist -> letlist ID EQUALS NUMBER SEMI .
+
+    RBRACE          reduce using rule 69 (letlist -> letlist ID EQUALS NUMBER SEMI .)
+    ID              reduce using rule 69 (letlist -> letlist ID EQUALS NUMBER SEMI .)
+
+
+state 226
+
+    (25) bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .
+
+    RBRACE          reduce using rule 25 (bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .)
+    ID              reduce using rule 25 (bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .)
+    PASS            reduce using rule 25 (bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .)
+    TYPE            reduce using rule 25 (bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .)
+    RETURN          reduce using rule 25 (bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .)
+    IF              reduce using rule 25 (bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .)
+    WHILE           reduce using rule 25 (bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .)
+    RESERV          reduce using rule 25 (bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .)
+    GLOBAL          reduce using rule 25 (bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .)
+    STR             reduce using rule 25 (bun -> TYPE ID EQUALS ID LISL shiki LISR SEMI .)
+
+
+state 227
+
+    (7) bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist . RBRACE SEMI
+    (22) bunlist -> bunlist . bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    RBRACE          shift and go to state 233
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bun                            shift and go to state 91
+
+state 228
+
+    (37) bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist . RBRACE
+    (22) bunlist -> bunlist . bun
+    (7) bun -> . ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI
+    (8) bun -> . ID KAKKO shiki KOKKA SEMI
+    (10) bun -> . ID EQUALS ID SEMI
+    (19) bun -> . ID PIRIOD ID KAKKO shiki KOKKA SEMI
+    (20) bun -> . PASS SEMI
+    (23) bun -> . TYPE ID EQUALS shiki SEMI
+    (24) bun -> . TYPE ID EQUALS LISL STR LISR SEMI
+    (25) bun -> . TYPE ID EQUALS ID LISL shiki LISR SEMI
+    (26) bun -> . ID EQUALS LISL LISR SEMI
+    (27) bun -> . ID EQUALS ID OPTASU NUMBER SEMI
+    (28) bun -> . ID EQUALS ID OPKAKERU NUMBER SEMI
+    (29) bun -> . ID EQUALS ID OPMIN NUMBER SEMI
+    (30) bun -> . ID EQUALS ID OPWARU NUMBER SEMI
+    (34) bun -> . RETURN shiki SEMI
+    (35) bun -> . RETURN bun
+    (36) bun -> . IF hikaku LBRACE bunlist RBRACE
+    (37) bun -> . IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE
+    (38) bun -> . WHILE shiki LBRACE bunlist RBRACE
+    (47) bun -> . PASS
+    (48) bun -> . PASS KAKKO KOKKA
+    (49) bun -> . PASS KAKKO PASS KOKKA SEMI
+    (57) bun -> . RESERV ID LISL NUMBER LISR EQUALS STR SEMI
+    (58) bun -> . RESERV ID LISL ID LISR EQUALS STR SEMI
+    (59) bun -> . RESERV ID LISL NUMBER LISR EQUALS ID SEMI
+    (60) bun -> . RESERV ID LISL ID LISR EQUALS ID SEMI
+    (61) bun -> . RESERV KAKKO shiki KOKKA SEMI
+    (64) bun -> . TYPE TYPE LBRACE letlist RBRACE SEMI
+    (65) bun -> . GLOBAL TYPE LBRACE letlist RBRACE SEMI
+    (70) bun -> . ID EQUALS ID OPTASU STR SEMI
+    (71) bun -> . ID EQUALS STR OPTASU ID SEMI
+    (72) bun -> . ID OPTASU OPTASU SEMI
+    (73) bun -> . STR OPTASU OPTASU SEMI
+
+    RBRACE          shift and go to state 234
+    ID              shift and go to state 68
+    PASS            shift and go to state 71
+    TYPE            shift and go to state 67
+    RETURN          shift and go to state 73
+    IF              shift and go to state 74
+    WHILE           shift and go to state 75
+    RESERV          shift and go to state 76
+    GLOBAL          shift and go to state 77
+    STR             shift and go to state 72
+
+    bun                            shift and go to state 91
+
+state 229
+
+    (60) bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .
+
+    RBRACE          reduce using rule 60 (bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .)
+    ID              reduce using rule 60 (bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .)
+    PASS            reduce using rule 60 (bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .)
+    TYPE            reduce using rule 60 (bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .)
+    RETURN          reduce using rule 60 (bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .)
+    IF              reduce using rule 60 (bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .)
+    WHILE           reduce using rule 60 (bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .)
+    RESERV          reduce using rule 60 (bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .)
+    GLOBAL          reduce using rule 60 (bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .)
+    STR             reduce using rule 60 (bun -> RESERV ID LISL ID LISR EQUALS ID SEMI .)
+
+
+state 230
+
+    (58) bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .
+
+    RBRACE          reduce using rule 58 (bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .)
+    ID              reduce using rule 58 (bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .)
+    PASS            reduce using rule 58 (bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .)
+    TYPE            reduce using rule 58 (bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .)
+    RETURN          reduce using rule 58 (bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .)
+    IF              reduce using rule 58 (bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .)
+    WHILE           reduce using rule 58 (bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .)
+    RESERV          reduce using rule 58 (bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .)
+    GLOBAL          reduce using rule 58 (bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .)
+    STR             reduce using rule 58 (bun -> RESERV ID LISL ID LISR EQUALS STR SEMI .)
+
+
+state 231
+
+    (59) bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .
+
+    RBRACE          reduce using rule 59 (bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .)
+    ID              reduce using rule 59 (bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .)
+    PASS            reduce using rule 59 (bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .)
+    TYPE            reduce using rule 59 (bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .)
+    RETURN          reduce using rule 59 (bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .)
+    IF              reduce using rule 59 (bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .)
+    WHILE           reduce using rule 59 (bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .)
+    RESERV          reduce using rule 59 (bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .)
+    GLOBAL          reduce using rule 59 (bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .)
+    STR             reduce using rule 59 (bun -> RESERV ID LISL NUMBER LISR EQUALS ID SEMI .)
+
+
+state 232
+
+    (57) bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .
+
+    RBRACE          reduce using rule 57 (bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .)
+    ID              reduce using rule 57 (bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .)
+    PASS            reduce using rule 57 (bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .)
+    TYPE            reduce using rule 57 (bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .)
+    RETURN          reduce using rule 57 (bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .)
+    IF              reduce using rule 57 (bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .)
+    WHILE           reduce using rule 57 (bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .)
+    RESERV          reduce using rule 57 (bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .)
+    GLOBAL          reduce using rule 57 (bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .)
+    STR             reduce using rule 57 (bun -> RESERV ID LISL NUMBER LISR EQUALS STR SEMI .)
+
+
+state 233
+
+    (7) bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE . SEMI
+
+    SEMI            shift and go to state 235
+
+
+state 234
+
+    (37) bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .
+
+    RBRACE          reduce using rule 37 (bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .)
+    ID              reduce using rule 37 (bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .)
+    PASS            reduce using rule 37 (bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .)
+    TYPE            reduce using rule 37 (bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .)
+    RETURN          reduce using rule 37 (bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .)
+    IF              reduce using rule 37 (bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .)
+    WHILE           reduce using rule 37 (bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .)
+    RESERV          reduce using rule 37 (bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .)
+    GLOBAL          reduce using rule 37 (bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .)
+    STR             reduce using rule 37 (bun -> IF hikaku LBRACE bunlist RBRACE ELSE LBRACE bunlist RBRACE .)
+
+
+state 235
+
+    (7) bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .
+
+    RBRACE          reduce using rule 7 (bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .)
+    ID              reduce using rule 7 (bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .)
+    PASS            reduce using rule 7 (bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .)
+    TYPE            reduce using rule 7 (bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .)
+    RETURN          reduce using rule 7 (bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .)
+    IF              reduce using rule 7 (bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .)
+    WHILE           reduce using rule 7 (bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .)
+    RESERV          reduce using rule 7 (bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .)
+    GLOBAL          reduce using rule 7 (bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .)
+    STR             reduce using rule 7 (bun -> ID EQUALS LAMDA KAKKO paramlist KOKKA LBRACE bunlist RBRACE SEMI .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for OPTASU in state 56 resolved as shift
+WARNING: shift/reduce conflict for OPKAKERU in state 56 resolved as shift
+WARNING: shift/reduce conflict for OPMIN in state 56 resolved as shift
+WARNING: shift/reduce conflict for OPWARU in state 56 resolved as shift
+WARNING: shift/reduce conflict for CONMA in state 56 resolved as shift
+WARNING: shift/reduce conflict for OPTASU in state 57 resolved as shift
+WARNING: shift/reduce conflict for OPKAKERU in state 57 resolved as shift
+WARNING: shift/reduce conflict for OPMIN in state 57 resolved as shift
+WARNING: shift/reduce conflict for OPWARU in state 57 resolved as shift
+WARNING: shift/reduce conflict for CONMA in state 57 resolved as shift
+WARNING: shift/reduce conflict for OPTASU in state 99 resolved as shift
+WARNING: shift/reduce conflict for OPTASU in state 100 resolved as shift
+WARNING: shift/reduce conflict for SEMI in state 182 resolved as shift
+WARNING: shift/reduce conflict for SEMI in state 183 resolved as shift

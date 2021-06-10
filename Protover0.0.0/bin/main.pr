@@ -1,0 +1,11 @@
+fn a => str {
+    str as = "OK";
+    return as;
+}
+
+fn main => int {
+    str x = "";
+    str ty = input(x); 
+    put(ty);
+    return 0; 
+}

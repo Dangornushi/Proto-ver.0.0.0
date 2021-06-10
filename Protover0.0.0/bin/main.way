@@ -1,0 +1,23 @@
+
+a():
+fode>str;
+mode>str;
+mov as "OK";
+ret a, as;
+end;
+cb;
+
+
+main():
+fode>int;
+mode>str;
+mov x "";
+input x;
+mode>str;
+mov ty x;
+msg ty;
+msg "\n";
+ret main, 0;
+end;
+cb;
+
